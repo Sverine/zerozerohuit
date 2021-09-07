@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+/******* GENERAL *******/
+*{
+    font-family: 'Michroma', sans-serif;
+}
+
+img{
+    width:100%;
+}
+body{
+    margin:0;
+}
+
+.page-width{
+    margin:50px 80px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container{
+    width:1440px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    margin:-10px auto 0;
+    background-color:#ffffff;
+    display:flex;
+    flex-direction: column;
+    align-items: center;;
+    position: relative;
+}
+
+/******* NAV *******/
+nav{
+    position: absolute;
+    z-index:2;
+    display:flex;
+    width: 98%;
+    margin-top:20px;
+    left: 1%;
+    justify-content:space-between;
+    font-size:14px;
+    color:white;
+}
+nav >div{
+    display:flex;
+}
+nav .zzh-logo{
+    width:50px;
+}
+
+nav ul{
+    display:flex;
+}
+nav ul li{
+    list-style: none;
+    margin:0 10px;
+}
+nav button{
+    background-color: #3996C4;
+    border-radius: 6px;
+    border:0;
+    max-height:35px;
+}
+nav button a{
+    color:white;
+    text-decoration: none;
+    margin:0 4px;
+}
+
+/******* FOOTER *******/
+footer{
+    background-color: #012A3E;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+footer figure{
+    width:50px;
+}
+
+footer p{
+    font-size:10px;
+    color:white;
+    text-align: center;
+}
+
+@media screen and (max-width:1440px){
+    .container{
+        width:100%;
+        box-shadow: none;
+        margin:0;
+    }
+    .page-width{
+        padding:0 50px;
+        margin:0 auto;
+    }
+}
+
+

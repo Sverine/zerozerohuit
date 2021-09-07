@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/homepage.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="header-hp">
+        <figure>
+            <img src="{{ asset('assets/images/zzh-header-hp.jpg') }}" alt="Image de fond de la page d'accueil">
+        </figure>
+        <div class="header-title page-width">
+            <h1>zerozerohuit</h1>
+            <h2>Comment est votre blanquette ?</h2>
+        </div>
+    </div>
+
+    <div class="page-width">
+        <h2>Les missions</h2>
+        <p>Découvrez toutes nos missions en cours </p>
+    </div>
+{% endblock %}

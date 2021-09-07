@@ -1,0 +1,32 @@
+.header-hp{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    max-height: 791px;
+    width:100%;
+}
+.header-hp figure{
+    position: absolute;
+    width:100%;
+    margin:0 ;
+    top:0%;
+    max-height:791px;
+    z-index:0;
+}
+
+.header-hp .header-title{
+    color:white;
+    z-index:1;
+    align-items: flex-start;
+}
+
+.header-hp .header-title h1{
+    text-transform: uppercase;
+    margin: 0 0 -30px;
+    font-size:48px;
+    font-weight: 400;
+}
+
