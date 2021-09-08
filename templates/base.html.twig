@@ -17,10 +17,14 @@
     </head>
     <body>
         <div class="container">
-            <nav>
+            <nav class="{% if app.request.get('_route') != 'app_login' %}white{% else %}dark{% endif %}">
                 <div>
                     <figure class="zzh-logo">
-                        <img src="{{ asset('assets/images/svg/zzh-logo.svg') }}" alt="Logo de Zero Zero Huit">
+                        {% if app.request.get('_route') != 'app_login' %}
+                            <img src="{{ asset('assets/images/svg/zzh-logo-white.svg') }}" alt="Logo de Zero Zero Huit">
+                        {% else %}
+                        <img src="{{ asset('assets/images/svg/zzh-logo-dark.svg') }}" alt="Logo de Zero Zero Huit">
+                        {% endif %}
                     </figure>
                     <ul>
                         <li>Nos missions</li>
@@ -34,7 +38,7 @@
 
             <footer>
                 <figure>
-                    <img src="{{ asset('assets/images/svg/zzh-logo.svg') }}" alt="Logo de Zero Zero Huit">
+                    <img src="{{ asset('assets/images/svg/zzh-logo-white.svg') }}" alt="Logo de Zero Zero Huit">
                 </figure>
                 <p>Made with love<br>by Séverine</p>
             </footer>

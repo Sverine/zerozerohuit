@@ -25,7 +25,7 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="json")
      */
     private $roles = [];
 
