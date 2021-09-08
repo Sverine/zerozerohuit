@@ -1,5 +1,6 @@
 #connexion{
     margin-top:150px;
+    min-height: 880px;
 }
 
 #connexion form{
@@ -11,13 +12,16 @@
 #connexion .form-container{
     width:100%;
     max-width:950px;
-    padding:50px;
+    padding:100px;
     border-radius: 10px;
     -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
     -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
     display:flex;
     justify-content: center;
+    position: relative;
+    z-index:5;
+    background-color:white;
 }
 
 #connexion .form-container .input{
@@ -25,6 +29,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin-left:20px;
 }
 
 
@@ -41,9 +46,6 @@
     outline: unset;
 }
 
-#connexion  .form-container button{
-    width:100%;
-}
 
 
 

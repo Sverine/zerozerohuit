@@ -8,43 +8,117 @@
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
+            <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('assets/css/bases.css') }}" rel="stylesheet">
         {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
     </head>
     <body>
-        <div class="container">
-            <nav class="{% if app.request.get('_route') != 'app_login' %}white{% else %}dark{% endif %}">
-                <div>
-                    <figure class="zzh-logo">
-                        {% if app.request.get('_route') != 'app_login' %}
-                            <img src="{{ asset('assets/images/svg/zzh-logo-white.svg') }}" alt="Logo de Zero Zero Huit">
-                        {% else %}
-                        <img src="{{ asset('assets/images/svg/zzh-logo-dark.svg') }}" alt="Logo de Zero Zero Huit">
-                        {% endif %}
-                    </figure>
-                    <ul>
-                        <li>Nos missions</li>
-                    </ul>
-                </div>
-                <button class="connect-button">
-                    <a href="#">Se connecter</a>
-                </button>
-            </nav>
-            {% block body %}{% endblock %}
+    {% block body %}
+            <div id="container">
+                {% if app.request.get('_route') == 'dashboard_planque' or app.request.get('_route') == 'dashboard' %}
+                    {% block dashboard %}
+                    <div class="nav">
+                        <button class="btn connect-button">
+                            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                        </button>
+                    </div>
 
-            <footer>
-                <figure>
-                    <img src="{{ asset('assets/images/svg/zzh-logo-white.svg') }}" alt="Logo de Zero Zero Huit">
-                </figure>
-                <p>Made with love<br>by Séverine</p>
-            </footer>
-        </div>
+                    <div class="sidebar">
+                        <div class="logo">
+                            <figure>
+                                <img src="{{ asset('assets/images/svg/zzh-logo-white.svg') }}" alt="Logo de Zero Zero Huit">
+                            </figure>
+                        </div>
+
+                        <div class="icons">
+                            <div class="missions">
+                                <figure>
+                                    <a href="{{ path('dashboard') }}">
+                                        <img src="{{ asset('assets/images/svg/mission-icon.svg') }}" alt="Logo de Zero Zero Huit">
+                                    </a>
+                                    <img class="buffer" src="{{ asset('assets/images/svg/buffer.svg') }}" alt="Logo de Zero Zero Huit">
+                                </figure>
+
+                            </div>
+                            <div class="target">
+                                <figure>
+                                    <img src="{{ asset('assets/images/svg/target-icon.svg') }}" alt="Logo de Zero Zero Huit">
+                                </figure>
+                            </div>
+                            <div class="agent">
+                                <figure>
+                                    <img src="{{ asset('assets/images/svg/agent-icon.svg') }}" alt="Logo de Zero Zero Huit">
+                                </figure>
+                            </div>
+                            <div class="place">
+                                <figure>
+                                    <img src="{{ asset('assets/images/svg/place-icon.svg') }}" alt="Logo de Zero Zero Huit">
+                                </figure>
+                            </div>
+                            <div class="contact">
+                                <figure>
+                                    <img src="{{ asset('assets/images/svg/contact-icon.svg') }}" alt="Logo de Zero Zero Huit">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    {% endblock %}
+                {% else %}
+                    {% block nav %}
+                        <nav class="navbar navbar-expand-lg {% if app.request.get('_route') != 'app_login' %}white{% else %}dark{% endif %}">
+                            <div class="container-fluid">
+                                <a class="navbar-brand zzh-logo" href="{{ path('home') }}">
+                                    {% if app.request.get('_route') != 'app_login' %}
+                                        <img src="{{ asset('assets/images/svg/zzh-logo-white.svg') }}" alt="Logo de Zero Zero Huit">
+                                    {% else %}
+                                        <img src="{{ asset('assets/images/svg/zzh-logo-dark.svg') }}" alt="Logo de Zero Zero Huit">
+                                    {% endif %}
+                                </a>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarText">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="#">Nos missions</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Qui sommes nous</a>
+                                        </li>
+                                    </ul>
+                                    <span class="navbar-text">
+                                <button type="button" class="connect-button btn">
+                                    {% if app.user %}
+                                        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                    {% else %}
+                                        <a href="{{ path('app_login') }}">Se connecter</a>
+                                    {% endif %}
+                                </button>
+                            </span>
+                                </div>
+                            </div>
+                        </nav>
+                    {% endblock %}
+                {% endif %}
+            </div>
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        {% endblock %}
+{% endblock %}
+{% block footer %}
+    <footer>
+        <figure>
+            <img src="{{ asset('assets/images/svg/zzh-logo-white.svg') }}" alt="Logo de Zero Zero Huit">
+        </figure>
+        <p>Made with love<br>by Séverine</p>
+    </footer>
+{% endblock %}
     </body>
 </html>
+
+
+
 
 
 

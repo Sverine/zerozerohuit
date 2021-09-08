@@ -19,7 +19,7 @@ body{
     align-items: center;
 }
 
-.container{
+#container{
     width:1440px;
     -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
     -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
@@ -30,23 +30,21 @@ body{
     flex-direction: column;
     align-items: center;;
     position: relative;
+    min-height: 101vh;
 }
 
 /******* NAV *******/
 nav{
-    position: absolute;
-    z-index:2;
-    display:flex;
     width: 98%;
     margin-top:20px;
     left: 1%;
-    justify-content:space-between;
     font-size:14px;
+    z-index:5;
+    }
+nav.dark ul li a{
+    color:#012A3E !important;
 }
-nav.dark{
-    color:#012A3E;
-}
-nav.white{
+nav.white ul li a{
     color:#FFFFFF;
 }
 
@@ -57,24 +55,71 @@ nav .zzh-logo{
     width:50px;
 }
 
-nav ul{
-    display:flex;
-}
-nav ul li{
-    list-style: none;
-    margin:0 10px;
-}
-button{
+.connect-button.btn {
     background-color: #3996C4;
     border-radius: 6px;
     border:0;
-    height:35px;
+    color:#ffffff;
 }
 button a{
-    color:white;
+    color:#ffffff;
     text-decoration: none;
     margin:0 4px;
 }
+
+.abstract-bg{
+    height: 500px;
+    width: 70%;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    bottom: 160px;
+    left: 30%;
+    z-index: 0;
+}
+/******* SIDEBAR *******/
+.sidebar{
+    background-color:#012A3E;
+    width:120px;
+    height:100vh;
+    min-height:850px;
+    position: fixed;
+    left:0%;
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar .logo{
+    width:40px;
+    margin-top:30px;
+    height:10%;
+}
+
+.sidebar .icons{
+    height:90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar .icons>div{
+    margin:40px 0;
+}
+
+.sidebar .icons>div figure{
+    width:30px;
+}
+
+.sidebar .icons .buffer{
+    position: absolute;
+    left:120px;
+    width: 15px;
+    margin-top: -19px;
+}
+
 
 /******* FOOTER *******/
 footer{

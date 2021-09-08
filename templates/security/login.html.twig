@@ -19,7 +19,6 @@
             </div>
         {% endif %}
 
-
         <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
 
         <div class="form-container">
@@ -29,9 +28,9 @@
                 </figure>
             </div>
             <div class="input">
-                <label for="inputEmail">E-mail</label>
+                <label for="inputEmail" class="form-label">E-mail</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email"  placeholder="Saisissez votre adresse e-mail" required autofocus>
-                <label for="inputPassword">Mot de passe</label>
+                <label for="inputPassword" class="form-label">Mot de passe</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" placeholder="Saisissez votre mot de passe" required>
 
                 <input type="hidden" name="_csrf_token"
@@ -49,11 +48,12 @@
                     </div>
                 #}
 
-                <button class="btn btn-lg btn-primary" type="submit">
-                    <a href="">Se connecter</a>
+                <button class="btn btn-lg connect-button" type="submit">
+                    Se connecter
                 </button>
             </div>
         </div>
     </form>
 </div>
+<div class="abstract-bg" style="background-image: url('{{ asset('assets/images/abstract-background.png') }}')"></div>
 {% endblock %}
