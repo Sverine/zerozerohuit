@@ -3,6 +3,7 @@
 /******* GENERAL *******/
 *{
     font-family: 'Michroma', sans-serif;
+    color:#333333;
 }
 
 img{
@@ -14,6 +15,12 @@ body{
 a{
     color:inherit;
     text-decoration: none;
+}
+.btn{
+    border-radius: 6px;
+    border: 0;
+    color: #ffffff;
+    font-size:12px;
 }
 
 .page-width{
@@ -89,7 +96,7 @@ button a{
     height:100vh;
     min-height:850px;
     position: fixed;
-    left:0%;
+    left:0;
     margin-top:10px;
     display: flex;
     flex-direction: column;

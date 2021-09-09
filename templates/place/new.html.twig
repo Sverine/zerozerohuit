@@ -4,6 +4,7 @@
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('assets/css/place.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -20,8 +21,6 @@
                 <button class="btn btn-lg connect-button" type="submit">Créer</button>
                 {{ form_end(form) }}
             </div>
-
-        <a href="{{ path('place_index') }}">back to list</a>
         </div>
     </div>
     <div class="abstract-bg" style="background-image: url('{{ asset('assets/images/abstract-background.png') }}')"></div>
