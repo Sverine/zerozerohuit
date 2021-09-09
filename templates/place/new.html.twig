@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une nouvelle planque{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/place.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div id="container">
+    <div id="place">
+        {% block dashboard %}{{ parent() }}{% endblock %}
+        <div class="page-width">
+            <h1>Créer une nouvelle planque</h1>
+
+            <div class="form-container">
+            {# {{ include('place/_form.html.twig') }} #}
+                {{ form_start(form) }}
+                {{ form_rest(form) }}
+                <button class="btn btn-lg connect-button" type="submit">Créer</button>
+                {{ form_end(form) }}
+            </div>
+
+        <a href="{{ path('place_index') }}">back to list</a>
+        </div>
+    </div>
+    <div class="abstract-bg" style="background-image: url('{{ asset('assets/images/abstract-background.png') }}')"></div>
+</div>
+{% endblock %}

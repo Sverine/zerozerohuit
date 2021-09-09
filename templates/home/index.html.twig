@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block body %}
+<div id="container">
+    {% block nav %}{{ parent() }}{% endblock %}
         <div class="header-hp">
             <figure>
                 <img src="{{ asset('assets/images/zzh-header-hp.jpg') }}" alt="Image de fond de la page d'accueil">
@@ -21,4 +23,6 @@
             <h2>Les missions</h2>
             <p>Découvrez toutes nos missions en cours </p>
         </div>
+</div>
 {% endblock %}
+{% block footer %}{{ parent() }}{% endblock %}

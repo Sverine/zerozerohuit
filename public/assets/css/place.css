@@ -1,0 +1,92 @@
+#place{
+    width: 100%;
+    min-height: 960px;
+}
+
+#place .nav{
+    position: absolute;
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#place .nav button{
+    margin:20px;
+}
+
+#place .sidebar .icons .buffer{
+    margin-top:339px;
+}
+
+
+#place .page-width{
+    margin:10% 5% 0 7%;
+}
+
+#place .places{
+    width:100%;
+}
+
+#place .places .header-table{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+#place .places table thead tr, #place .places table thead tr th{
+    border:none;
+}
+
+#place .places table tbody tr td:last-child{
+    text-align: right;
+}
+
+#place .empty-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#place .empty-illustration{
+    max-width:420px;
+}
+
+#place .form-container{
+    width: 100%;
+    max-width: 950px;
+    padding: 50px 80px;
+    margin-top:50px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+    background-color: white;
+}
+
+#place .form-container form{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#place .form-container form button{
+    margin-top:40px;
+}
+
+#place .form-container form input, #place .form-container form textarea {
+    height:50px;
+    border:#3996C4 solid 1px;
+    border-radius: 5px;
+    font-size:12px;
+}
+#place  .form-container input:focus-visible{
+    box-shadow: inset 0 0 1px 1px #3996C4;
+    color:#3996C4;
+    outline: unset;
+}

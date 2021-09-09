@@ -20,7 +20,6 @@
 }
 
 #dashboard h1{
-    align-self:flex-start;
     margin-bottom: 50px;
 }
 
@@ -45,5 +44,9 @@
 
 #dashboard .missions table tbody tr td:last-child{
     text-align: right;
+}
+
+#dashboard .missions table th{
+    padding-top:40px;
 }
 
