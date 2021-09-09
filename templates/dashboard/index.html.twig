@@ -3,7 +3,7 @@
 {% block title %}Dashboard{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
-    <link href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
@@ -16,7 +16,7 @@
             <div class="missions">
                 <div class="header-table">
                     <h2>Missions</h2>
-                    <button class="btn connect-button"><span> +  </span>Ajouter une mission</button>
+                    <button class="btn add-button">+   Ajouter une mission</button>
                 </div>
                 <table class="table">
                     <thead>

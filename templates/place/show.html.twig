@@ -1,38 +1,51 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Place{% endblock %}
+{% block title %}Planque {{ place.code }}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
+{% endblock %}
 
 {% block body %}
-    <h1>Place</h1>
+<div id="container" class="admin-dashboard">
+    <div id="place">
+        {% block dashboard %}{{ parent() }}{% endblock %}
+        <div class="page-width">
+            <a class="return" href="{{ path('place_index') }}">< Retour</a>
+            <h1>Planque <br>{{ place.code }}</h1>
+            <div class="show-container">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ place.id }}</td>
-            </tr>
-            <tr>
-                <th>Code</th>
-                <td>{{ place.code }}</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>{{ place.address }}</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>{{ place.country }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ place.type }}</td>
-            </tr>
-        </tbody>
-    </table>
+                <figure>
+                    <img src="{{ asset('assets/images/show.png') }}" alt="Illustration">
+                </figure>
 
-    <a href="{{ path('place_index') }}">back to list</a>
+                <div class="infos">
+                    <div class="address">
+                        <p>Adresse</p>
+                        <p>{{ place.address }}</p>
+                    </div>
+                    <div class="country">
+                        <p>Pays</p>
+                        <p>{{ place.country }}</p>
+                    </div>
+                    <div class="type">
+                        <p>Type</p>
+                        <p>{{ place.type }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="actions-container">
+                <button class="btn modify-button">
+                    <a href="{{ path('place_edit', {'id': place.id}) }}">Modifier</a>
+                </button>
+                <form method="post" action="{{ path('place_delete', {'id': place.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cette planque ?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ place.id) }}">
+                    <button class="btn delete-button">Supprimer</button>
+                </form>
 
-    <a href="{{ path('place_edit', {'id': place.id}) }}">edit</a>
-
-    {{ include('place/_delete_form.html.twig') }}
+            </div>
+            {#  {{ include('place/_delete_form.html.twig') }}#}
+        </div>
+    </div>
+</div>
 {% endblock %}

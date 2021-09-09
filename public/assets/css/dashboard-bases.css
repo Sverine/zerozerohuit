@@ -1,0 +1,168 @@
+/****** GENERAL & SIDEBAR ******/
+#dashboard, #place, #target{
+    width:100%;
+    min-height: 800px;
+}
+
+#dashboard .page-width,
+.admin-dashboard .page-width{
+    margin:10% 5% 0 7%;
+}
+#dashboard .page-width .return,
+.admin-dashboard .page-width .return{
+    align-self:flex-start;
+    margin-bottom: 50px;
+}
+
+#dashboard .missions,
+.admin-dashboard .places,
+.admin-dashboard .targets{
+    width:100%;
+}
+
+
+/****** NAV ******/
+#dashboard .nav,
+.admin-dashboard .nav{
+    position: absolute;
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#dashboard .nav button,
+.admin-dashboard .nav button{
+    margin:20px;
+}
+
+
+#dashboard h1,
+.admin-dashboard h1{
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/****** TABLES ******/
+#dashboard .missions .header-table,
+.admin-dashboard .header-table{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+#dashboard .missions .header-table .add-button,
+.admin-dashboard .header-table .add-button{
+    background-color: #012A3E;
+}
+
+#dashboard .missions table thead tr, #dashboard .missions table thead tr th,
+.admin-dashboard table thead tr, .admin-dashboard table thead tr th{
+    border:none;
+}
+
+#dashboard .missions table th,
+.admin-dashboard table th{
+    padding-top:40px;
+}
+
+#dashboard .missions table tbody tr td:last-child,
+.admin-dashboard  table tbody tr td:last-child{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#dashboard .missions table tbody tr td:last-child button,
+.admin-dashboard table tbody tr td:last-child button {
+    border:none;
+    background-color: transparent;
+    margin:0;
+}
+
+
+/****** IF NO DATA ******/
+.admin-dashboard .empty-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+}
+.admin-dashboard .empty-illustration{
+    max-width:420px;
+}
+
+/****** FORM ******/
+
+.admin-dashboard .form-container{
+    width: 100%;
+    max-width: 950px;
+    padding: 50px 80px;
+    margin-top:50px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+    background-color: white;
+}
+
+.admin-dashboard .form-container form{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-dashboard .form-container form button{
+    margin-top:40px;
+}
+
+.admin-dashboard .form-container form input, .admin-dashboard .form-container form textarea {
+    height:50px;
+    border:#3996C4 solid 1px;
+    border-radius: 5px;
+    font-size:12px;
+}
+.admin-dashboard  .form-container input:focus-visible{
+    box-shadow: inset 0 0 1px 1px #3996C4;
+    color:#3996C4;
+    outline: unset;
+}
+
+/****** SHOW ******/
+
+.admin-dashboard .show-container{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width:80%;
+    margin-top:50px;
+}
+
+.admin-dashboard .show-container .infos >div p:first-child{
+    font-size:20px;
+    color:#012A3E;
+    margin-bottom: 0;
+}
+
+.admin-dashboard .actions-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-dashboard .actions-container >button{
+    margin:20px;
+}
+.admin-dashboard  .modify-button{
+    background-color: #012A3E;
+}
+.admin-dashboard  .delete-button{
+    background-color: #E75858;
+}
+
+
