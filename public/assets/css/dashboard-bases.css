@@ -1,28 +1,29 @@
 /****** GENERAL & SIDEBAR ******/
-#dashboard, #place{
+#dashboard, #place, #target{
     width:100%;
     min-height: 800px;
 }
 
 #dashboard .page-width,
-#place .page-width{
+.admin-dashboard .page-width{
     margin:10% 5% 0 7%;
 }
 #dashboard .page-width .return,
-#place .page-width .return{
+.admin-dashboard .page-width .return{
     align-self:flex-start;
     margin-bottom: 50px;
 }
 
 #dashboard .missions,
-#place .places{
+.admin-dashboard .places,
+.admin-dashboard .targets{
     width:100%;
 }
 
 
 /****** NAV ******/
 #dashboard .nav,
-#place .nav{
+.admin-dashboard .nav{
     position: absolute;
     width:100%;
     display: flex;
@@ -30,18 +31,20 @@
 }
 
 #dashboard .nav button,
-#place .nav button{
+.admin-dashboard .nav button{
     margin:20px;
 }
 
 
-#dashboard h1{
+#dashboard h1,
+.admin-dashboard h1{
     margin-bottom: 50px;
+    text-align: center;
 }
 
 /****** TABLES ******/
 #dashboard .missions .header-table,
-#place .places .header-table{
+.admin-dashboard .header-table{
     width:100%;
     display: flex;
     justify-content: space-between;
@@ -49,28 +52,28 @@
 }
 
 #dashboard .missions .header-table .add-button,
-#place .places .header-table .add-button{
+.admin-dashboard .header-table .add-button{
     background-color: #012A3E;
 }
 
 #dashboard .missions table thead tr, #dashboard .missions table thead tr th,
-#place .places table thead tr, #place .places table thead tr th{
+.admin-dashboard table thead tr, .admin-dashboard table thead tr th{
     border:none;
 }
 
 #dashboard .missions table th,
-#place .places table th{
+.admin-dashboard table th{
     padding-top:40px;
 }
 
 #dashboard .missions table tbody tr td:last-child,
-#place .places table tbody tr td:last-child{
+.admin-dashboard  table tbody tr td:last-child{
     display: flex;
     justify-content: space-evenly;
 }
 
 #dashboard .missions table tbody tr td:last-child button,
-#place .places table tbody tr td:last-child button{
+.admin-dashboard table tbody tr td:last-child button {
     border:none;
     background-color: transparent;
     margin:0;
@@ -78,7 +81,7 @@
 
 
 /****** IF NO DATA ******/
-#place .empty-container{
+.admin-dashboard .empty-container{
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -86,13 +89,13 @@
     width: 100%;
     margin-top: 100px;
 }
-#place .empty-illustration{
+.admin-dashboard .empty-illustration{
     max-width:420px;
 }
 
 /****** FORM ******/
 
-#place .form-container{
+.admin-dashboard .form-container{
     width: 100%;
     max-width: 950px;
     padding: 50px 80px;
@@ -108,23 +111,23 @@
     background-color: white;
 }
 
-#place .form-container form{
+.admin-dashboard .form-container form{
     width:100%;
     display: flex;
     flex-direction: column;
 }
 
-#place .form-container form button{
+.admin-dashboard .form-container form button{
     margin-top:40px;
 }
 
-#place .form-container form input, #place .form-container form textarea {
+.admin-dashboard .form-container form input, .admin-dashboard .form-container form textarea {
     height:50px;
     border:#3996C4 solid 1px;
     border-radius: 5px;
     font-size:12px;
 }
-#place  .form-container input:focus-visible{
+.admin-dashboard  .form-container input:focus-visible{
     box-shadow: inset 0 0 1px 1px #3996C4;
     color:#3996C4;
     outline: unset;
@@ -132,7 +135,7 @@
 
 /****** SHOW ******/
 
-#place .show-container{
+.admin-dashboard .show-container{
     display:flex;
     justify-content: space-around;
     align-items: center;
@@ -140,25 +143,25 @@
     margin-top:50px;
 }
 
-#place .show-container .infos >div p:first-child{
+.admin-dashboard .show-container .infos >div p:first-child{
     font-size:20px;
     color:#012A3E;
     margin-bottom: 0;
 }
 
-#place .actions-container{
+.admin-dashboard .actions-container{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#place .actions-container >button{
+.admin-dashboard .actions-container >button{
     margin:20px;
 }
-#place  .modify-button{
+.admin-dashboard  .modify-button{
     background-color: #012A3E;
 }
-#place  .delete-button{
+.admin-dashboard  .delete-button{
     background-color: #E75858;
 }
 

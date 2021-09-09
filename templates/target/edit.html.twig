@@ -1,22 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier Planque  {{ place.code }}{% endblock %}
+{% block title %}Modifier {{ target.firstName }}{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
 {% endblock %}
-
 
 {% block body %}
 <div id="container" class="admin-dashboard">
     <div id="place">
         {% block dashboard %}{{ parent() }}{% endblock %}
         <div class="page-width">
-            <h1>Modifier la planque<br>
-                {{ place.code }}
+            <h1>Modifier <br>
+                {{ target.firstName }} {{ target.lastName }}
             </h1>
             <div class="form-container">
-            {# {{ include('place/_form.html.twig', {'button_label': 'Update'}) }}#}
+                {# {{ include('place/_form.html.twig', {'button_label': 'Update'}) }}#}
                 {{ form_start(form) }}
                 {{ form_rest(form) }}
                 <button class="btn modify-button" type="submit">Modifier</button>
