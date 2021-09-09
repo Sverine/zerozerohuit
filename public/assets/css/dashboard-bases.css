@@ -1,4 +1,4 @@
-/****** GENERAL, SIDEBAR & NAV ******/
+/****** GENERAL & SIDEBAR ******/
 #dashboard, #place{
     width:100%;
     min-height: 800px;
@@ -19,6 +19,8 @@
     width:100%;
 }
 
+
+/****** NAV ******/
 #dashboard .nav,
 #place .nav{
     position: absolute;
@@ -31,6 +33,12 @@
 #place .nav button{
     margin:20px;
 }
+
+
+#dashboard h1{
+    margin-bottom: 50px;
+}
+
 /****** TABLES ******/
 #dashboard .missions .header-table,
 #place .places .header-table{
