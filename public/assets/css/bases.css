@@ -139,7 +139,17 @@ button a{
 #target .sidebar .icons .buffer {
     margin-top: 70px;
 }
+#contact .sidebar .icons .buffer {
+    margin-top: 466px;
+}
 
+#skill .sidebar .icons .buffer {
+    margin-top: 583px;
+}
+
+#agent .sidebar .icons .buffer {
+    margin-top: 205px;
+}
 
 /******* FOOTER *******/
 footer{

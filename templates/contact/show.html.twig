@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cible{{ target.firstName }}{% endblock %}
+{% block title %}Contact {{ contact.firstName }} {{ contact.lastName }}{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
@@ -8,12 +8,11 @@
 
 {% block body %}
 <div id="container" class="admin-dashboard">
-    <div id="target">
+    <div id="contact">
         {% block dashboard %}{{ parent() }}{% endblock %}
         <div class="page-width">
-            <a class="return" href="{{ path('target_index') }}">< Retour</a>
-            <h1>Cible<br>{{ target.firstName }} {{ target.lastName }}</h1>
-            {{ dump(target) }}
+            <a class="return" href="{{ path('contact_index') }}">< Retour</a>
+            <h1>Contact<br>{{ contact.firstName }} {{ contact.lastName }}</h1>
 
             <div class="show-container">
                 <figure>
@@ -23,36 +22,38 @@
                 <div class="infos">
                     <div class="first-name">
                         <p>Adresse</p>
-                        <p>{{ target.firstName }}</p>
+                        <p>{{ contact.firstName }}</p>
                     </div>
                     <div class="last-name">
                         <p>Nom</p>
-                        <p>{{ target.lastName }}</p>
+                        <p>{{ contact.lastName }}</p>
                     </div>
                     <div class="date-birth">
                         <p>Date de naissance</p>
-                        <p>{{ target.dateBirth ? target.dateBirth|date('Y-m-d') : '' }}</p>
+                        <p>{{ contact.dateBirth ? contact.dateBirth|date('Y-m-d') : '' }}</p>
                     </div>
                     <div class="code-name">
                         <p>Nom de code</p>
-                        <p>{{ target.codeName}}</p>
+                        <p>{{ contact.codeName}}</p>
                     </div>
                     <div class="nationality">
                         <p>Nationalité</p>
-                        <p>{{ target.nationality}}</p>
+                        <p>{{ contact.nationality}}</p>
                     </div>
                 </div>
             </div>
+
             <div class="actions-container">
                 <button class="btn modify-button">
-                    <a href="{{ path('target_edit', {'id': target.id}) }}">Modifier</a>
+                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">Modifier</a>
                 </button>
-                <form method="post" action="{{ path('target_delete', {'id': target.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cette cible ?');">
-                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ target.id) }}">
+                <form method="post" action="{{ path('contact_delete', {'id': contact.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer ce contact ?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ contact.id) }}">
                     <button class="btn delete-button">Supprimer</button>
                 </form>
 
             </div>
+            
         </div>
     </div>
 </div>

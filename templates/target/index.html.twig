@@ -48,7 +48,7 @@
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M27.4085 3.21898C26.3671 2.17758 24.6786 2.17758 23.6373 3.21898L21.7516 5.10459L27.4085 10.7614L29.2941 8.87583C30.3355 7.83443 30.3355 6.14599 29.2941 5.10459L27.4085 3.21898Z" fill="black"/>
                                     </svg>
                                 </a>
-                                <form method="post" action="{{ path('target_delete', {'id': target.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                <form method="post" action="{{ path('target_delete', {'id': target.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer cette cible ?');">
                                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ target.id) }}">
                                     <button>
                                         <svg width="23" height="23" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

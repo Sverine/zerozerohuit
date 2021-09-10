@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\PlaceRepository;
+use App\Repository\SkillRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=PlaceRepository::class)
+ * @ORM\Entity(repositoryClass=SkillRepository::class)
  */
-class Place
+class Skill
 {
     /**
      * @ORM\Id
@@ -22,35 +22,27 @@ class Place
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $code;
+    private $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\ManyToMany(targetEntity=Agent::class, mappedBy="skills")
      */
-    private $address;
+    private $agents;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $country;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $type;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="places")
+     * @ORM\OneToMany(targetEntity=Mission::class, mappedBy="skill")
      */
     private $missions;
 
     public function __construct()
     {
+        $this->agents = new ArrayCollection();
         $this->missions = new ArrayCollection();
     }
+
     public function __toString()
     {
-        return $this->getCode();
+        return $this->getName();
     }
 
     public function getId(): ?int
@@ -58,50 +50,41 @@ class Place
         return $this->id;
     }
 
-    public function getCode(): ?string
+    public function getName(): ?string
     {
-        return $this->code;
+        return $this->name;
     }
 
-    public function setCode(string $code): self
+    public function setName(string $name): self
     {
-        $this->code = $code;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getAddress(): ?string
+    /**
+     * @return Collection|Agent[]
+     */
+    public function getAgents(): Collection
     {
-        return $this->address;
+        return $this->agents;
     }
 
-    public function setAddress(string $address): self
+    public function addAgent(Agent $agent): self
     {
-        $this->address = $address;
+        if (!$this->agents->contains($agent)) {
+            $this->agents[] = $agent;
+            $agent->addSkill($this);
+        }
 
         return $this;
     }
 
-    public function getCountry(): ?string
+    public function removeAgent(Agent $agent): self
     {
-        return $this->country;
-    }
-
-    public function setCountry(string $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    public function getType(): ?string
-    {
-        return $this->type;
-    }
-
-    public function setType(string $type): self
-    {
-        $this->type = $type;
+        if ($this->agents->removeElement($agent)) {
+            $agent->removeSkill($this);
+        }
 
         return $this;
     }
@@ -118,7 +101,7 @@ class Place
     {
         if (!$this->missions->contains($mission)) {
             $this->missions[] = $mission;
-            $mission->addPlace($this);
+            $mission->setSkill($this);
         }
 
         return $this;
@@ -127,7 +110,10 @@ class Place
     public function removeMission(Mission $mission): self
     {
         if ($this->missions->removeElement($mission)) {
-            $mission->removePlace($this);
+            // set the owning side to null (unless already changed)
+            if ($mission->getSkill() === $this) {
+                $mission->setSkill(null);
+            }
         }
 
         return $this;

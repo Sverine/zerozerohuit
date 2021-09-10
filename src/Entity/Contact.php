@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\TargetRepository;
+use App\Repository\ContactRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=TargetRepository::class)
+ * @ORM\Entity(repositoryClass=ContactRepository::class)
  */
-class Target
+class Contact
 {
     /**
      * @ORM\Id
@@ -32,7 +32,7 @@ class Target
     /**
      * @ORM\Column(type="date")
      */
-    private $date_birth;
+    private $dateBirth;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -45,7 +45,7 @@ class Target
     private $nationality;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="targets")
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="contacts")
      */
     private $missions;
 
@@ -53,8 +53,6 @@ class Target
     {
         $this->missions = new ArrayCollection();
     }
-
-
     public function __toString()
     {
         return $this->getCodeName();
@@ -91,12 +89,12 @@ class Target
 
     public function getDateBirth(): ?\DateTimeInterface
     {
-        return $this->date_birth;
+        return $this->dateBirth;
     }
 
-    public function setDateBirth(\DateTimeInterface $date_birth): self
+    public function setDateBirth(\DateTimeInterface $dateBirth): self
     {
-        $this->date_birth = $date_birth;
+        $this->dateBirth = $dateBirth;
 
         return $this;
     }
@@ -137,7 +135,7 @@ class Target
     {
         if (!$this->missions->contains($mission)) {
             $this->missions[] = $mission;
-            $mission->addTarget($this);
+            $mission->addContact($this);
         }
 
         return $this;
@@ -146,10 +144,9 @@ class Target
     public function removeMission(Mission $mission): self
     {
         if ($this->missions->removeElement($mission)) {
-            $mission->removeTarget($this);
+            $mission->removeContact($this);
         }
 
         return $this;
     }
-
 }

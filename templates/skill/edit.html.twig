@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la spécialité {{ skill.name }}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="container" class="admin-dashboard">
+        <div id="skill">
+            {% block dashboard %}{{ parent() }}{% endblock %}
+            <div class="page-width">
+                <h1>Modifier <br>
+                    {{ skill.name }}
+                </h1>
+                <div class="form-container">
+                    {# {{ include('place/_form.html.twig', {'button_label': 'Update'}) }}#}
+                    {{ form_start(form) }}
+                    {{ form_rest(form) }}
+                    <button class="btn modify-button" type="submit">Modifier</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier {{ target.firstName }} {{ target.lastName }}{% endblock %}
+{% block title %}Créer un nouveau contact{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
@@ -8,17 +8,15 @@
 
 {% block body %}
 <div id="container" class="admin-dashboard">
-    <div id="target">
+    <div id="contact">
         {% block dashboard %}{{ parent() }}{% endblock %}
         <div class="page-width">
-            <h1>Modifier <br>
-                {{ target.firstName }} {{ target.lastName }}
-            </h1>
+            <h1>Créer un nouveau contact</h1>
             <div class="form-container">
-                {# {{ include('place/_form.html.twig', {'button_label': 'Update'}) }}#}
+                {# {{ include('place/_form.html.twig') }} #}
                 {{ form_start(form) }}
                 {{ form_rest(form) }}
-                <button class="btn modify-button" type="submit">Modifier</button>
+                <button class="btn btn-lg connect-button" type="submit">Créer</button>
                 {{ form_end(form) }}
             </div>
         </div>

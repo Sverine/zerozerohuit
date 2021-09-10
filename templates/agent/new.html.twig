@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un nouveau agent{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="container" class="admin-dashboard">
+        <div id="agent">
+            {% block dashboard %}{{ parent() }}{% endblock %}
+            <div class="page-width">
+                <h1>Créer un nouveau agent</h1>
+                <div class="form-container">
+                    {{ form_start(form) }}
+                    {{ form_rest(form) }}
+                    <button class="btn btn-lg connect-button" type="submit">Créer</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

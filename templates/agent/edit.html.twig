@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier {{ agent.firstName }} {{ agent.lastName }}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="container" class="admin-dashboard">
+        <div id="agent">
+            {% block dashboard %}{{ parent() }}{% endblock %}
+            <div class="page-width">
+                <h1>Modifier <br>
+                    {{ agent.firstName }} {{ agent.lastName }}
+                </h1>
+                <div class="form-container">
+                    {{ form_start(form) }}
+                    {{ form_rest(form) }}
+                    <button class="btn modify-button" type="submit">Modifier</button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
