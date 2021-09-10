@@ -26,7 +26,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="contact_new", methods={"GET","POST"})
+     * @Route("/nouveau-contact", name="contact_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -59,7 +59,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="contact_edit", methods={"GET","POST"})
+     * @Route("/{id}/modifier", name="contact_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Contact $contact): Response
     {

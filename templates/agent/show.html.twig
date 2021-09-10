@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agent {{ agent.firstName }} {{ agent.lastName }}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="container" class="admin-dashboard">
+        <div id="agent">
+            {% block dashboard %}{{ parent() }}{% endblock %}
+            <div class="page-width">
+                <a class="return" href="{{ path('agent_index') }}">< Retour</a>
+                <h1>Agent<br>{{ agent.firstName }} {{ agent.lastName }}</h1>
+
+                <div class="show-container">
+                    <figure>
+                        <img src="{{ asset('assets/images/show.png') }}" alt="Illustration">
+                    </figure>
+
+                    <div class="infos">
+                        <div class="first-name">
+                            <p>Prénom</p>
+                            <p>{{ agent.firstName }}</p>
+                        </div>
+                        <div class="last-name">
+                            <p>Nom</p>
+                            <p>{{ agent.lastName }}</p>
+                        </div>
+                        <div class="date-birth">
+                            <p>Date de naissance</p>
+                            <p>{{ agent.dateBirth ? agent.dateBirth|date('Y-m-d') : '' }}</p>
+                        </div>
+                        <div class="auth-code">
+                            <p>Code d'authentification</p>
+                            <p>{{ agent.authCode}}</p>
+                        </div>
+                        <div class="nationality">
+                            <p>Nationalité</p>
+                            <p>{{ agent.nationality}}</p>
+                        </div>
+                        <div class="skills">
+                            <p>Spécialité</p>
+                            {% for skill in agent.skills %}
+                                <p>{{ skill}}</p>
+                            {% endfor %}
+                        </div>
+                        {#  <div class="skill">
+                            <p>Spécialité</p>
+                            <p>{{ agent.skill}}</p>
+                        </div>#}
+                    </div>
+                </div>
+
+                <div class="actions-container">
+                    <button class="btn modify-button">
+                        <a href="{{ path('agent_edit', {'id': agent.id}) }}">Modifier</a>
+                    </button>
+                    <form method="post" action="{{ path('agent_delete', {'id': agent.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cet agent ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ agent.id) }}">
+                        <button class="btn delete-button">Supprimer</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Spécialité :  {{ skill.name }} {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="container" class="admin-dashboard">
+        <div id="skill">
+            {% block dashboard %}{{ parent() }}{% endblock %}
+            <div class="page-width">
+                <a class="return" href="{{ path('skill_index') }}">< Retour</a>
+                <h1>Spécialité :<br>{{ skill.name }}</h1>
+
+                <div class="show-container">
+                    <figure>
+                        <img src="{{ asset('assets/images/show.png') }}" alt="Illustration">
+                    </figure>
+
+                    <div class="infos">
+                        <div class="name">
+                            <p>Nom</p>
+                            <p>{{ skill.name }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions-container">
+                    <button class="btn modify-button">
+                        <a href="{{ path('skill_edit', {'id': skill.id}) }}">Modifier</a>
+                    </button>
+                    <form method="post" action="{{ path('skill_delete', {'id': skill.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cette spécialité ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ skill.id) }}">
+                        <button class="btn delete-button">Supprimer</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

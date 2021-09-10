@@ -59,7 +59,7 @@ class PlaceController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="place_edit", methods={"GET","POST"})
+     * @Route("/{id}/modifier", name="place_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Place $place): Response
     {

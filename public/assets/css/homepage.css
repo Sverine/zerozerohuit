@@ -19,15 +19,19 @@
 }
 
 .header-hp .header-title{
-    color:white;
     z-index:1;
     align-items: flex-start;
+    margin-top:-60px;
 }
 
 .header-hp .header-title h1{
     text-transform: uppercase;
-    margin: 0 0 -30px;
+    margin: 0 0 -5px;
     font-size:48px;
     font-weight: 400;
+}
+
+.header-hp .header-title h1,.header-hp .header-title h2{
+    color:#ffffff;
 }
 

@@ -59,7 +59,7 @@ class TargetController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="target_edit", methods={"GET","POST"})
+     * @Route("/{id}/modifier", name="target_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Target $target): Response
     {
