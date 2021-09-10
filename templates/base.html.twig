@@ -16,12 +16,6 @@
     <body>
     {% block body %}
 
-            {% if app.request.get('_route') == 'dashboard'
-                or app.request.get('_route') == 'place_index'
-                or app.request.get('_route') == 'place_new'
-                or app.request.get('_route') == 'place_show'
-                or app.request.get('_route') == 'place_edit'
-            %}
                 {% block dashboard %}
                 <div class="nav">
                     <button class="btn connect-button">
@@ -41,8 +35,8 @@
                     <div class="icons">
                         <div class="missions">
                             <figure>
-                                <a href="{{ path('dashboard') }}">
-                                    {% if app.request.get('_route') starts with 'dashboard' %}
+                                <a href="{{ path('mission_index') }}">
+                                    {% if app.request.get('_route') starts with 'mission' %}
                                     <svg width="31" height="31" viewBox="0 0 31 31" fill="#3996C4" xmlns="http://www.w3.org/2000/svg">
                                     {% else %}
                                     <svg width="31" height="31" viewBox="0 0 31 31" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -132,7 +126,6 @@
                     </div>
                 </div>
                 {% endblock %}
-            {% else %}
                 {% block nav %}
                     <nav class="navbar navbar-expand-lg {% if app.request.get('_route') != 'app_login' %}white{% else %}dark{% endif %}">
                         <div class="container-fluid">
@@ -169,7 +162,6 @@
                         </div>
                     </nav>
                 {% endblock %}
-            {% endif %}
         {% block javascripts %}
             <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
         {% endblock %}

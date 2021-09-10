@@ -1,5 +1,5 @@
 /****** GENERAL & SIDEBAR ******/
-#dashboard, #place, #target, #contact, #skill, #agent{
+#dashboard, #place, #target, #contact, #skill, #agent, #mission{
     width:100%;
     min-height: 800px;
 }
@@ -19,7 +19,8 @@
 .admin-dashboard .targets,
 .admin-dashboard .contacts,
 .admin-dashboard .skills,
-.admin-dashboard .agents{
+.admin-dashboard .agents,
+.admin-dashboard .missions{
     width:100%;
 }
 

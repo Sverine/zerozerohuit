@@ -25,7 +25,7 @@ class AgentType extends AbstractType
             ->add('nationality',CountryType::class, ['label'=>'Nationalité'])
             ->add('skills', EntityType::class,[
                 'class' => Skill::class,
-                'multiple'=>true,
+                'multiple'=>true
             ])
         ;
     }

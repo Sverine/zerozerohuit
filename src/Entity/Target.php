@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TargetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,9 +45,20 @@ class Target
     private $nationality;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Mission::class, inversedBy="targets")
+     * @ORM\ManyToMany(targetEntity=Mission::class, mappedBy="targets")
      */
-    private $mission;
+    private $missions;
+
+    public function __construct()
+    {
+        $this->missions = new ArrayCollection();
+    }
+
+
+    public function __toString()
+    {
+        return $this->getCodeName();
+    }
 
     public function getId(): ?int
     {
@@ -112,15 +125,31 @@ class Target
         return $this;
     }
 
-    public function getMission(): ?Mission
+    /**
+     * @return Collection|Mission[]
+     */
+    public function getMissions(): Collection
     {
-        return $this->mission;
+        return $this->missions;
     }
 
-    public function setMission(?Mission $mission): self
+    public function addMission(Mission $mission): self
     {
-        $this->mission = $mission;
+        if (!$this->missions->contains($mission)) {
+            $this->missions[] = $mission;
+            $mission->addTarget($this);
+        }
 
         return $this;
     }
+
+    public function removeMission(Mission $mission): self
+    {
+        if ($this->missions->removeElement($mission)) {
+            $mission->removeTarget($this);
+        }
+
+        return $this;
+    }
+
 }

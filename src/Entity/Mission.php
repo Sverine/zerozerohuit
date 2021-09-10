@@ -49,10 +49,6 @@ class Mission
      */
     private $contacts;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Target::class, mappedBy="mission")
-     */
-    private $targets;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -84,12 +80,17 @@ class Mission
      */
     private $date_end;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Target::class, inversedBy="missions")
+     */
+    private $targets;
+
     public function __construct()
     {
         $this->agents = new ArrayCollection();
         $this->contacts = new ArrayCollection();
-        $this->targets = new ArrayCollection();
         $this->places = new ArrayCollection();
+        $this->targets = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -193,35 +194,6 @@ class Mission
         return $this;
     }
 
-    /**
-     * @return Collection|Target[]
-     */
-    public function getTargets(): Collection
-    {
-        return $this->targets;
-    }
-
-    public function addTarget(Target $target): self
-    {
-        if (!$this->targets->contains($target)) {
-            $this->targets[] = $target;
-            $target->setMission($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTarget(Target $target): self
-    {
-        if ($this->targets->removeElement($target)) {
-            // set the owning side to null (unless already changed)
-            if ($target->getMission() === $this) {
-                $target->setMission(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getType(): ?string
     {
@@ -303,6 +275,30 @@ class Mission
     public function setDateEnd(?\DateTimeInterface $date_end): self
     {
         $this->date_end = $date_end;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Target[]
+     */
+    public function getTargets(): Collection
+    {
+        return $this->targets;
+    }
+
+    public function addTarget(Target $target): self
+    {
+        if (!$this->targets->contains($target)) {
+            $this->targets[] = $target;
+        }
+
+        return $this;
+    }
+
+    public function removeTarget(Target $target): self
+    {
+        $this->targets->removeElement($target);
 
         return $this;
     }

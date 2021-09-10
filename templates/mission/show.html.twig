@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mission {{ mission.title }}{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('assets/css/dashboard-bases.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div id="container" class="admin-dashboard">
+        <div id="mission">
+            {% block dashboard %}{{ parent() }}{% endblock %}
+            <div class="page-width">
+                <a class="return" href="{{ path('mission_index') }}">< Retour</a>
+                <h1>Mission <br>{{ mission.title }}</h1>
+                {% for agent in mission.agents %}
+                    {{ agent.nationality }}
+                {% endfor %}
+
+                <div class="show-container">
+                    <figure>
+                        <img src="{{ asset('assets/images/show.png') }}" alt="Illustration">
+                    </figure>
+
+                    <div class="infos">
+                        <div class="title">
+                            <p>Titre</p>
+                            <p>{{ mission.title }}</p>
+                        </div>
+                        <div class="description">
+                            <p>Description</p>
+                            <p>{{ mission.description }}</p>
+                        </div>
+                        <div class="code-name">
+                            <p>Nom de code</p>
+                            <p>{{ mission.codeName }}</p>
+                        </div>
+                        <div class="country">
+                            <p>Pays</p>
+                            <p>{{ mission.country }}</p>
+                        </div>
+                        <div class="type">
+                            <p>Type</p>
+                            <p>{{ mission.type }}</p>
+                        </div>
+                        <div class="type">
+                            <p>Statut</p>
+                            <p>{{ mission.status }}</p>
+                        </div>
+                        <div class="date-start">
+                            <p>Date de début</p>
+                            <p>{{ mission.dateStart ? mission.dateStart|date('Y-m-d') : '' }}</p>
+                        </div>
+                        <div class="date-end">
+                            <p>Date de fin</p>
+                            <p>{{ mission.dateEnd ? mission.dateEnd|date('Y-m-d') : '' }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions-container">
+                    <button class="btn modify-button">
+                        <a href="{{ path('mission_edit', {'id': mission.id}) }}">Modifier</a>
+                    </button>
+                    <form method="post" action="{{ path('mission_delete', {'id': mission.id}) }}" onsubmit="return confirm('Etes-vous sûr de vouloir supprimer cette mission ?');">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ mission.id) }}">
+                        <button class="btn delete-button">Supprimer</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

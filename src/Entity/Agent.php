@@ -45,7 +45,7 @@ class Agent
     private $nationality;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Skill::class, inversedBy="agents")
+     * @ORM\ManyToMany(targetEntity=Skill::class, inversedBy="agents", cascade={"persist"})
      */
     private $skills;
 
@@ -58,6 +58,10 @@ class Agent
     {
         $this->skills = new ArrayCollection();
         $this->missions = new ArrayCollection();
+    }
+    public function __toString()
+    {
+        return $this->getAuthCode();
     }
 
     public function getId(): ?int

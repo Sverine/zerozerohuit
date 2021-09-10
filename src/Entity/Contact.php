@@ -53,6 +53,10 @@ class Contact
     {
         $this->missions = new ArrayCollection();
     }
+    public function __toString()
+    {
+        return $this->getCodeName();
+    }
 
     public function getId(): ?int
     {
