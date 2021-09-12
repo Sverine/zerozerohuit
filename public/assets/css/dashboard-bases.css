@@ -4,6 +4,10 @@
     min-height: 800px;
 }
 
+#dashboard >div:last-child, #place >div:last-child, #target >div:last-child, #contact >div:last-child, #skill >div:last-child, #agent >div:last-child, #mission >Òdiv:last-child{
+    margin-bottom:250px;
+}
+
 #dashboard .page-width,
 .admin-dashboard .page-width{
     margin:10% 5% 0 7%;
@@ -40,12 +44,22 @@
 }
 
 
+/****** DASHBOARD PAGE ******/
+#dashboard .content{
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top:40px;
+
+}
+
 #dashboard h1,
 .admin-dashboard h1{
-    margin-bottom: 50px;
     text-align: center;
 }
 
+#dashboard .intro p span{
+    color:#3996C4;
+}
 /****** TABLES ******/
 #dashboard .missions .header-table,
 .admin-dashboard .header-table{
@@ -103,7 +117,7 @@
     width: 100%;
     max-width: 950px;
     padding: 50px 80px;
-    margin-top:50px;
+    margin: 50px 0 250px;
     border-radius: 10px;
     -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
     -moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
@@ -157,6 +171,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 250px;
 }
 
 .admin-dashboard .actions-container >button{

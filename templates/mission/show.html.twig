@@ -13,9 +13,6 @@
             <div class="page-width">
                 <a class="return" href="{{ path('mission_index') }}">< Retour</a>
                 <h1>Mission <br>{{ mission.title }}</h1>
-                {% for agent in mission.agents %}
-                    {{ agent.nationality }}
-                {% endfor %}
 
                 <div class="show-container">
                     <figure>
@@ -23,10 +20,10 @@
                     </figure>
 
                     <div class="infos">
-                        <div class="title">
+                        {# <div class="title">
                             <p>Titre</p>
                             <p>{{ mission.title }}</p>
-                        </div>
+                        </div> #}
                         <div class="description">
                             <p>Description</p>
                             <p>{{ mission.description }}</p>
@@ -38,6 +35,10 @@
                         <div class="country">
                             <p>Pays</p>
                             <p>{{ mission.country }}</p>
+                        </div>
+                        <div class="skill">
+                            <p>Pays</p>
+                            <p>{{ mission.skill }}</p>
                         </div>
                         <div class="type">
                             <p>Type</p>
@@ -71,5 +72,6 @@
 
             </div>
         </div>
+        {% block footer %}{{ parent() }}{% endblock %}
     </div>
 {% endblock %}

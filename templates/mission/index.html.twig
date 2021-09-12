@@ -22,26 +22,26 @@
                             <thead>
                             <tr>
                                 <th>Titre</th>
-                                <th>Description</th>
                                 <th>Nom de code</th>
                                 <th>Pays</th>
+                                <th>Spécialité</th>
                                 <th>Type</th>
                                 <th>Statut</th>
-                                <th>Date de début</th>
-                                <th>Date de fin</th>
+                                {#  <th>Date de début</th>
+                                <th>Date de fin</th>#}
                             </tr>
                             </thead>
                             <tbody>
                             {% for mission in missions %}
-                                <tr>
+                                <tr class="{% if mission.status == 'Terminé'%}table-success {% elseif mission.status == 'Echec' %}table-danger{% endif %}" >
                                     <td>{{ mission.title }}</td>
-                                    <td>{{ mission.description }}</td>
                                     <td>{{ mission.codeName }}</td>
                                     <td>{{ mission.country }}</td>
+                                    <td>{{ mission.skill }}</td>
                                     <td>{{ mission.type }}</td>
                                     <td>{{ mission.status }}</td>
-                                    <td>{{ mission.dateStart ? mission.dateStart|date('Y-m-d') : '' }}</td>
-                                    <td>{{ mission.dateEnd ? mission.dateEnd|date('Y-m-d') : '' }}</td>
+                                   {# <td>{{ mission.dateStart ? mission.dateStart|date('Y-m-d') : '' }}</td>
+                                    <td>{{ mission.dateEnd ? mission.dateEnd|date('Y-m-d') : '' }}</td>#}
                                     <td>
                                         <a href="{{ path('mission_show', {'id': mission.id}) }}">
                                             <svg width="23" height="23" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,6 +81,7 @@
                 </div>
             </div>
         </div>
+        {% block footer %}{{ parent() }}{% endblock %}
     </div>
 {% endblock %}
 

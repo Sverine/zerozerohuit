@@ -20,14 +20,14 @@
                     </figure>
 
                     <div class="infos">
-                        <div class="first-name">
+                        {# <div class="first-name">
                             <p>Prénom</p>
                             <p>{{ agent.firstName }}</p>
                         </div>
                         <div class="last-name">
                             <p>Nom</p>
                             <p>{{ agent.lastName }}</p>
-                        </div>
+                        </div>#}
                         <div class="date-birth">
                             <p>Date de naissance</p>
                             <p>{{ agent.dateBirth ? agent.dateBirth|date('Y-m-d') : '' }}</p>
@@ -62,6 +62,7 @@
 
             </div>
         </div>
+        {% block footer %}{{ parent() }}{% endblock %}
     </div>
 {% endblock %}
 

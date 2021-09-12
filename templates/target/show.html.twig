@@ -13,7 +13,6 @@
         <div class="page-width">
             <a class="return" href="{{ path('target_index') }}">< Retour</a>
             <h1>Cible<br>{{ target.firstName }} {{ target.lastName }}</h1>
-            {{ dump(target) }}
 
             <div class="show-container">
                 <figure>
@@ -22,7 +21,7 @@
 
                 <div class="infos">
                     <div class="first-name">
-                        <p>Adresse</p>
+                        <p>Prénom</p>
                         <p>{{ target.firstName }}</p>
                     </div>
                     <div class="last-name">
@@ -55,5 +54,6 @@
             </div>
         </div>
     </div>
+    {% block footer %}{{ parent() }}{% endblock %}
 </div>
 {% endblock %}

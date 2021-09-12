@@ -11,7 +11,6 @@ use App\Entity\Target;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -26,7 +25,23 @@ class MissionType extends AbstractType
             ->add('title', TextType::class, ['label'=>'Titre'])
             ->add('description', TextareaType::class, ['label'=>'Description'])
             ->add('codeName', TextType::class, ['label'=>'Nom de code'])
-            ->add('country',CountryType::class, ['label'=>'Pays'])
+            ->add('country',ChoiceType::class, [
+                'label'=>'Pays',
+                'choices'=>[
+                    'France'=>'France',
+                    'Allemagne'=>'Allemagne',
+                    'Italie'=>'Italie',
+                    'Angleterre'=>'Angleterre',
+                    'Ecosse'=>'Ecosse',
+                    'Thailande'=>'Thailande',
+                    'Japon'=>'Japon',
+                    'Chine'=>'Chine',
+                    'Russie'=>'Russie',
+                    'Australie'=>'Australie',
+                    'Mexique'=>'Mexique',
+                    'Etats-Unis'=>'Etats-Unis'
+                ]
+                ])
             ->add('contacts', EntityType::class,[
                 'class'=> Contact::class,
                 'multiple'=>true,
@@ -49,7 +64,7 @@ class MissionType extends AbstractType
             ->add('type',ChoiceType::class,[
                 'choices'=>[
                     'Surveillance'=>'Surveillance',
-                    'Assassination'=>'Assassination',
+                    'Assassinat'=>'Assassinat',
                     'Infiltration'=>'Infiltration'
                 ],
                 'label'=>'Type'

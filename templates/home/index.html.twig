@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}ZEROZEROHUIT!{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     <link href="{{ asset('assets/css/homepage.css') }}" rel="stylesheet">
@@ -8,6 +8,7 @@
 
 {% block body %}
 <div id="container">
+    <div id="home">
     {% block nav %}{{ parent() }}{% endblock %}
         <div class="header-hp">
             <figure>
@@ -19,10 +20,32 @@
             </div>
         </div>
 
-        <div class="page-width">
+        <div id="missions-anchor" class="page-width">
             <h2>Les missions</h2>
             <p>Découvrez toutes nos missions en cours </p>
+
+            <div class="missions-container">
+            {% for mission in missions %}
+               {# <a href="{{ path('home_show', {'id':mission.id}) }}">#}
+                <a href="{{ path('home_show', {'id':mission.id}) }}">
+                {#  {% if mission.type="Surveillance" %}background-image : url({{ asset('assets/images/surveillance.jpg') }})"{% elsif %}{% else %}{% endif %}{}#}
+                    <div class="card" style="background-image:
+                        {% if mission.type == "Surveillance" %}url('{{ asset('assets/images/surveillance.jpg') }}')
+                        {% elseif mission.type == "Infiltration" %}url('{{ asset('assets/images/infiltration.jpg') }}')
+                        {% else %}url('{{ asset('assets/images/assassinat.jpg') }}'){% endif %}" >
+                        <div class="layer"></div>
+                        <div class="title">
+                            <p>{{ mission.title }}</p>
+                            <p>{{ mission.type }}</p>
+                            <p>{{ mission.country }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            </div>
         </div>
+    </div>
+
+{% block footer %}{{ parent() }}{% endblock %}
 </div>
 {% endblock %}
-{% block footer %}{{ parent() }}{% endblock %}
