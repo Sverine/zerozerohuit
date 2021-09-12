@@ -23,7 +23,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="home_show", methods={"GET"})
+     * @Route("/mission/{id}", name="home_show", methods={"GET"})
      */
     public function show(Mission $mission) :Response
     {
