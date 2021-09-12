@@ -20,14 +20,14 @@
                 </figure>
 
                 <div class="infos">
-                    <div class="first-name">
-                        <p>Adresse</p>
+                    {# <div class="first-name">
+                        <p>Prénom</p>
                         <p>{{ contact.firstName }}</p>
                     </div>
                     <div class="last-name">
                         <p>Nom</p>
                         <p>{{ contact.lastName }}</p>
-                    </div>
+                    </div>#}
                     <div class="date-birth">
                         <p>Date de naissance</p>
                         <p>{{ contact.dateBirth ? contact.dateBirth|date('Y-m-d') : '' }}</p>
@@ -56,5 +56,6 @@
             
         </div>
     </div>
+    {% block footer %}{{ parent() }}{% endblock %}
 </div>
 {% endblock %}

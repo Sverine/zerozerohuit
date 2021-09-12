@@ -129,6 +129,9 @@ button a{
     position: absolute;
     left:120px;
     width: 15px;
+    margin-top: -188px;
+}
+#mission .sidebar .icons .buffer {
     margin-top: -51px;
 }
 
@@ -151,6 +154,7 @@ button a{
     margin-top: 205px;
 }
 
+
 /******* FOOTER *******/
 footer{
     background-color: #012A3E;
@@ -160,6 +164,8 @@ footer{
     width:100%;
     min-height: 200px;
     padding-top: 50px;
+    position:absolute;
+    bottom:0;
 }
 footer figure{
     width:50px;

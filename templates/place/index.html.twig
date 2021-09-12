@@ -73,8 +73,6 @@
             </div>
         </div>
     </div>
-    {% if places %}
-    {% endif%}
+    {% block footer %}{{ parent() }}{% endblock %}
 </div>
 {% endblock %}
-{% block footer %}{{ parent() }}{% endblock %}

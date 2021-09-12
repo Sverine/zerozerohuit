@@ -11,6 +11,9 @@
         <div id="mission">
             {% block dashboard %}{{ parent() }}{% endblock %}
             <div class="page-width">
+                {% for agent in mission.agents %}
+                {{ dump(agent.firstName) }}
+                {% endfor %}
                 <h1>Créer une nouvelle mission</h1>
                 <div class="form-container">
                     {{ form_start(form) }}
@@ -20,6 +23,7 @@
                 </div>
             </div>
         </div>
+        {% block footer %}{{ parent() }}{% endblock %}
     </div>
     {% block javascripts %}
         {{ parent() }}

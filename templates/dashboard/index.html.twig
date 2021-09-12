@@ -11,58 +11,25 @@
     <div id="dashboard">
         {% block dashboard %}{{ parent() }}{% endblock %}
 
-        <div class="page-width">
+        <div class="intro page-width">
             <h1>Bonjour {{ app.user.firstName}}</h1>
-            <div class="missions">
-                <div class="header-table">
-                    <h2>Missions</h2>
-                    <button class="btn add-button">+   Ajouter une mission</button>
-                </div>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">Titre</th>
-                        <th scope="col">Nom de code</th>
-                        <th scope="col">Pays</th>
-                        <th scope="col">Cible</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>
-                            <a href="">Modifier</a>
-                            <a href="">X</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>
-                            <a href="">Modifier</a>
-                            <a href="">X</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>
-                            <a href="">Modifier</a>
-                            <a href="">X</a>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <p>Il y a actuellement <span>{{ missions|length }}</span> missions</p>
+        </div>
+
+        <div class="content page-width">
+            <figure>
+                <img src="{{ asset('assets/images/dashboard-illustration.png') }}">
+            </figure>
+            <div class="infos">
+                <p>Total de cibles :{{ targets|length }}</p>
+                <p>Total d'agents : {{ agents|length }}</p>
+                <p>Total de planques : {{ places|length }}</p>
+                <p>Total de contacts : {{ contacts|length }}</p>
+                <p>Total de spécialités : {{ skills|length }}</p>
             </div>
         </div>
+
     </div>
-    <div class="abstract-bg" style="background-image: url('{{ asset('assets/images/abstract-background.png') }}')"></div>
+    {% block footer %}{{ parent() }}{% endblock %}
 </div>
 {% endblock %}
-{% block footer %}{{ parent() }}{% endblock %}

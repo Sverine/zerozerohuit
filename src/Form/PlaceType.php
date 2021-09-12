@@ -6,7 +6,6 @@ use App\Entity\Place;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,7 +17,23 @@ class PlaceType extends AbstractType
         $builder
             ->add('code', TextType::class, ['label'=>'Code'])
             ->add('address', TextareaType::class,['label'=>'Adresse'])
-            ->add('country', CountryType::class, ['label'=>'Pays'])
+            ->add('country', ChoiceType::class, [
+                'label'=>'Pays',
+                'choices'=>[
+                    'France'=>'France',
+                    'Allemagne'=>'Allemagne',
+                    'Italie'=>'Italie',
+                    'Angleterre'=>'Angleterre',
+                    'Ecosse'=>'Ecosse',
+                    'Thailande'=>'Thailande',
+                    'Japon'=>'Japon',
+                    'Chine'=>'Chine',
+                    'Russie'=>'Russie',
+                    'Australie'=>'Australie',
+                    'Mexique'=>'Mexique',
+                    'Etats-Unis'=>'Etats-Unis'
+                    ]
+                ])
             ->add('type', ChoiceType::class,[
                 'label'=>'Type',
                 'choices'=>[

@@ -47,5 +47,6 @@
             {#  {{ include('place/_delete_form.html.twig') }}#}
         </div>
     </div>
+    {% block footer %}{{ parent() }}{% endblock %}
 </div>
 {% endblock %}

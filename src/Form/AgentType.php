@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,10 +22,27 @@ class AgentType extends AbstractType
             ->add('lastName',TextType::class,['label'=>'Nom'])
             ->add('dateBirth',BirthdayType::class,['label'=>'Date de naissance'])
             ->add('authCode', TextType::class,['label'=>'Code d\'authentification'])
-            ->add('nationality',CountryType::class, ['label'=>'Nationalité'])
+            ->add('nationality',ChoiceType::class, [
+                'label'=>'Nationalité',
+                'choices'=>[
+                    'France'=>'France',
+                    'Allemagne'=>'Allemagne',
+                    'Italie'=>'Italie',
+                    'Angleterre'=>'Angleterre',
+                    'Ecosse'=>'Ecosse',
+                    'Thailande'=>'Thailande',
+                    'Japon'=>'Japon',
+                    'Chine'=>'Chine',
+                    'Russie'=>'Russie',
+                    'Australie'=>'Australie',
+                    'Mexique'=>'Mexique',
+                    'Etats-Unis'=>'Etats-Unis'
+                ]
+            ])
             ->add('skills', EntityType::class,[
                 'class' => Skill::class,
-                'multiple'=>true
+                'multiple'=>true,
+                'label'=>'Spécialité(s)'
             ])
         ;
     }
