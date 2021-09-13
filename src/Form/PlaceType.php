@@ -9,14 +9,28 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class PlaceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('code', TextType::class, ['label'=>'Code'])
-            ->add('address', TextareaType::class,['label'=>'Adresse'])
+            ->add('code', TextType::class, [
+                'label'=>'Code',
+                'constraints' => [
+                    new Length(['min' => 3, 'max'=>50]),
+                    new NotBlank()
+                ]
+            ])
+            ->add('address', TextareaType::class,[
+                'label'=>'Adresse',
+                'constraints' => [
+                    new Length(['min' => 5, 'max'=>250]),
+                    new NotBlank()
+                ]
+            ])
             ->add('country', ChoiceType::class, [
                 'label'=>'Pays',
                 'choices'=>[

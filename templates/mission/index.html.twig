@@ -14,9 +14,9 @@
                 <div class="missions">
                     <div class="header-table">
                         <h2>Missions</h2>
+
                         {% if missions %}<button class="btn add-button"><a href="{{ path('mission_new') }}">+   Ajouter une mission</a></button>{% endif %}
                     </div>
-
                     {% if missions %}
                         <table class="table">
                             <thead>
@@ -70,7 +70,7 @@
                     {% else %}
                         <div class="empty-container">
                             <figure class="empty-illustration">
-                                <img src="{{ asset('assets/images/empty.png') }}" alt="Illustration pas d'information">
+                                <img src="{{ asset('assets/images/mission.png') }}" alt="Illustration pas d'information">
                             </figure>
                             <p>Il n’y a pas encore de mission</p>
                             <button class="btn connect-button">

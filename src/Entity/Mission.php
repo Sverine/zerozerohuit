@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Mission
 {
+    public  $errors = [];
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -91,6 +92,18 @@ class Mission
         $this->contacts = new ArrayCollection();
         $this->places = new ArrayCollection();
         $this->targets = new ArrayCollection();
+    }
+
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
+    public function addErrors($error): self
+    {
+        $this->errors[] = $error;
+
+        return $this;
     }
 
     public function getId(): ?int
@@ -302,4 +315,99 @@ class Mission
 
         return $this;
     }
+
+    public function targetIsValid():bool
+    {
+        $agents = $this->agents;
+        $targets = $this->targets;
+
+        foreach ($targets as $target){
+            foreach ($agents as $agent){
+                if ($agent->getNationality() == $target->getNationality()){
+                    var_dump($agent->getFirstName());
+                    $error = 'La cible ne doit pas être de la même nationalité que le ou les agents positionné(s) sur cette mission ';
+                    $this->addErrors($error);
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public function contactIsValid():bool
+    {
+        $contacts = $this->contacts;
+        $country = $this->country;
+
+        foreach ($contacts as $contact){
+            if ($country != $contact->getNationality()){
+                $error = 'Le ou les contact(s) doivent être du même pays que la mission actuelle';
+                $this->addErrors($error);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function placeIsValid():bool
+    {
+        $places = $this->places;
+        $country = $this->country;
+
+        foreach ($places as $place){
+            if ($country != $place->getCountry()){
+                $error = 'La planque doit être dans le même pays que la mission actuelle';
+                $this->addErrors($error);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function agentIsValid():bool
+    {
+        $skill = $this->skill;
+        $agents = $this->agents;
+        $skillsAgent = 0;
+        foreach ($agents as $agent){
+            $agentSkills = $agent->displaySkillsInArray();
+                if (in_array($skill->getName(), $agentSkills)){
+                    $skillsAgent += 1;
+                }
+                if ($skillsAgent == 0){
+                    $error = 'La spécialité requise n\'est pas une des spécialité de ou des agent(s) selectionné(s)';
+                    $this->addErrors($error);
+                    return false;
+                }
+        }
+        return true;
+    }
+
+    public function isValid():bool
+    {
+        if (!$this->targetIsValid()  || !$this->contactIsValid() || !$this->placeIsValid() || !$this->agentIsValid()){
+            return false;
+        }
+        return true;
+    }
+
+    /*public function isValid()
+    {
+        if (!$this->targetIsValid()) {
+            if (!$this->contactIsValid()){
+                if (!$this->placeIsValid()){
+                    if (!$this->agentIsValid()){
+                        return false;
+                    }
+                }
+            }
+        }
+    }*/
+
+    public function test():bool
+    {
+        return true;
+    }
+
+
 }

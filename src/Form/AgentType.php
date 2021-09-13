@@ -12,16 +12,42 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class AgentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName', TextType::class,['label'=>'Prénom'])
-            ->add('lastName',TextType::class,['label'=>'Nom'])
-            ->add('dateBirth',BirthdayType::class,['label'=>'Date de naissance'])
-            ->add('authCode', TextType::class,['label'=>'Code d\'authentification'])
+            ->add('firstName', TextType::class,[
+                'label'=>'Prénom',
+                'constraints' => [
+                    new Length(['min' => 3, 'max'=>50]),
+                    new NotBlank()
+                ]
+            ])
+            ->add('lastName',TextType::class,[
+                'label'=>'Nom',
+                'constraints' => [
+                    new Length(['min' => 3, 'max'=>50]),
+                    new NotBlank()
+                ]
+            ])
+            ->add('dateBirth',BirthdayType::class,[
+                'label'=>'Date de naissance',
+                'constraints'=>[
+                    new Date()
+                ]
+            ])
+            ->add('authCode', TextType::class,[
+                'label'=>'Code d\'authentification',
+                'constraints' => [
+                    new Length(['min' => 3, 'max'=>50]),
+                    new NotBlank()
+                ]
+            ])
             ->add('nationality',ChoiceType::class, [
                 'label'=>'Nationalité',
                 'choices'=>[
