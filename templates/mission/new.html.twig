@@ -39,6 +39,7 @@
         <script>
 
             /*DIV OF SELECT*/
+            let title = document.getElementById('mission_title');
             let countrySelect = document.getElementById('mission_country');
             let skillSelect = document.getElementById('mission_skill');
             let contactSelect = document.getElementById('mission_contacts');
@@ -59,8 +60,11 @@
                 document.getElementById('mission_date_end').parentNode
             ];
 
-            for (let element of elementsToHide){
-                element.style.display='none';
+
+            if (!title.value){
+                for (let element of elementsToHide){
+                    element.style.display='none';
+                }
             }
 
             countrySelect.addEventListener('change', ()=>{

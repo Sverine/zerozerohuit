@@ -26,7 +26,7 @@ class ContactType extends AbstractType
                 ]
             ])
             ->add('lastName',TextType::class, [
-                'label'=>'Prénom',
+                'label'=>'Nom',
                 'constraints' => [
                     new Length(['min' => 3, 'max'=>50]),
                     new NotBlank()

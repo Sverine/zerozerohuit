@@ -12,11 +12,13 @@
             {% block dashboard %}{{ parent() }}{% endblock %}
             <div class="page-width">
                 <h1>Modifier <br>{{ mission.title }}</h1>
-                {% for message in app.flashes('error') %}
-                    <div class="flash-notice">
-                        {{ message }}
+                {% if errors is defined %}
+                    <div class="error-container">
+                        {% for error in errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
                     </div>
-                {% endfor %}
+                {% endif %}
                 <div class="form-container">
                     {{ form_start(form) }}
                     {{ form_rest(form) }}
