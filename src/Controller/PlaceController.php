@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Place;
 use App\Form\PlaceType;
 use App\Repository\PlaceRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +19,17 @@ class PlaceController extends AbstractController
     /**
      * @Route("/", name="place_index", methods={"GET"})
      */
-    public function index(PlaceRepository $placeRepository): Response
+    public function index(PlaceRepository $placeRepository, PaginatorInterface $paginator, Request $request): Response
     {
+
+        $places = $paginator->paginate(
+            $placeRepository->findAllByPaginationQuery(),
+            $request->query->getInt('page', 1),
+            3
+        );
+
         return $this->render('place/index.html.twig', [
-            'places' => $placeRepository->findAll(),
+            'places' => $places,
         ]);
     }
 

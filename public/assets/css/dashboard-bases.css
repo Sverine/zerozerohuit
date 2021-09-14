@@ -211,6 +211,10 @@
     background-color: #E75858;
 }
 
+.admin-dashboard .pagination{
+    justify-content: center;
+}
+
 
 @media screen and (max-width: 1440px){
     #dashboard, #place, #target, #contact, #skill, #agent, #mission{
