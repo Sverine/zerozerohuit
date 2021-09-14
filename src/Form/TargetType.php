@@ -34,14 +34,11 @@ class TargetType extends AbstractType
             ])
             ->add('date_birth', BirthdayType::class,[
                 'label'=>'Date de naissance',
-                'constraints'=>[
-                    new Date()
-                ]
             ])
             ->add('codeName',TextType::class, [
                 'label'=>'Nom de code',
                 'constraints' => [
-                    new Length(['min' => 5, 'max'=>10]),
+                    new Length(['min' => 5, 'max'=>100]),
                     new NotBlank()
                 ]
             ])
@@ -52,7 +49,6 @@ class TargetType extends AbstractType
                     'Allemagne'=>'Allemagne',
                     'Italie'=>'Italie',
                     'Angleterre'=>'Angleterre',
-                    'Ecosse'=>'Ecosse',
                     'Thailande'=>'Thailande',
                     'Japon'=>'Japon',
                     'Chine'=>'Chine',

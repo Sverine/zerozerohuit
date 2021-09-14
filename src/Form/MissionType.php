@@ -33,7 +33,6 @@ class MissionType extends AbstractType
                     'Allemagne'=>'Allemagne',
                     'Italie'=>'Italie',
                     'Angleterre'=>'Angleterre',
-                    'Ecosse'=>'Ecosse',
                     'Thailande'=>'Thailande',
                     'Japon'=>'Japon',
                     'Chine'=>'Chine',

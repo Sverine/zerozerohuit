@@ -47,43 +47,41 @@
             let targetSelect = document.getElementById('mission_targets');
 
             /*SELECT INPUT*/
-            let contactSelectParent = document.getElementById('mission_contacts').parentNode;
-            let placeSelectParent = document.getElementById('mission_places').parentNode;
-            let skillSelectParent = document.getElementById('mission_skill').parentNode;
-            let agentSelectParent = document.getElementById('mission_agents').parentNode;
-            let targetSelectParent = document.getElementById('mission_targets').parentNode;
+            let elementsToHide = [
+                contactSelect.parentNode,
+                placeSelect.parentNode,
+                skillSelect.parentNode,
+                agentSelect.parentNode,
+                targetSelect.parentNode,
+                document.getElementById('mission_type').parentNode,
+                document.getElementById('mission_status').parentNode,
+                document.getElementById('mission_date_start').parentNode,
+                document.getElementById('mission_date_end').parentNode
+            ];
 
-            let typeSelectParent = document.getElementById('mission_type').parentNode;
-            let statusSelectParent = document.getElementById('mission_status').parentNode;
-            let dateStartSelectParent = document.getElementById('mission_date_start').parentNode;
-            let dateEndSelectParent = document.getElementById('mission_date_end').parentNode;
-
-            let elementsToHide = [contactSelectParent,placeSelectParent,skillSelectParent,agentSelectParent,targetSelectParent, typeSelectParent, statusSelectParent, dateStartSelectParent ,dateEndSelectParent];
-
-            /*for (let element of elementsToHide){
+            for (let element of elementsToHide){
                 element.style.display='none';
             }
 
             countrySelect.addEventListener('change', ()=>{
-                contactSelectParent.style.display='block';
+                contactSelect.parentNode.style.display='block';
             });
             contactSelect.addEventListener('change', ()=>{
-                placeSelectParent.style.display='block';
-            });
-            placeSelect.addEventListener('change', ()=>{
-                skillSelectParent.style.display='block';
+                placeSelect.parentNode.style.display='block';
+                skillSelect.parentNode.style.display='block';
+
             });
             skillSelect.addEventListener('change', ()=>{
-                agentSelectParent.style.display='block';
+                agentSelect.parentNode.style.display='block';
             });
             agentSelect.addEventListener('change', ()=>{
-                targetSelectParent.style.display='block';
+                targetSelect.parentNode.style.display='block';
             });
             targetSelect.addEventListener('change', ()=>{
                 for (let i = 5; i < elementsToHide.length; i++){
                     elementsToHide[i].style.display='block';
                 }
-            });*/
+            });
 
 
         </script>

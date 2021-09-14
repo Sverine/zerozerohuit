@@ -34,9 +34,6 @@ class ContactType extends AbstractType
             ])
             ->add('dateBirth', BirthdayType::class,[
                 'label'=>'Date de naissance',
-                'constraints' => [
-                    new Date()
-                ]
             ])
             ->add('codeName',TextType::class, [
                 'label'=>'Nom de code',
@@ -52,7 +49,6 @@ class ContactType extends AbstractType
                     'Allemagne'=>'Allemagne',
                     'Italie'=>'Italie',
                     'Angleterre'=>'Angleterre',
-                    'Ecosse'=>'Ecosse',
                     'Thailande'=>'Thailande',
                     'Japon'=>'Japon',
                     'Chine'=>'Chine',
