@@ -8,17 +8,16 @@
     margin-bottom:250px;
 }
 
-#dashboard .page-width,
 .admin-dashboard .page-width{
     margin:10% 5% 0 7%;
 }
-#dashboard .page-width .return,
+
 .admin-dashboard .page-width .return{
     align-self:flex-start;
     margin-bottom: 50px;
 }
 
-#dashboard .missions,
+.admin-dashboard .missions,
 .admin-dashboard .places,
 .admin-dashboard .targets,
 .admin-dashboard .contacts,
@@ -61,7 +60,7 @@
     color:#3996C4;
 }
 /****** TABLES ******/
-#dashboard .missions .header-table,
+
 .admin-dashboard .header-table{
     width:100%;
     display: flex;
@@ -69,28 +68,30 @@
     margin: 20px 0;
 }
 
-#dashboard .missions .header-table .add-button,
 .admin-dashboard .header-table .add-button{
     background-color: #012A3E;
 }
 
-#dashboard .missions table thead tr, #dashboard .missions table thead tr th,
-.admin-dashboard table thead tr, .admin-dashboard table thead tr th{
+
+.admin-dashboard table thead tr th{
+    border:none;
+}.admin-dashboard table tbody tr:not(:last-child){
+    border-bottom: 1px solid #e0e0e0;
+ }
+
+.admin-dashboard table tbody tr td{
     border:none;
 }
 
-#dashboard .missions table th,
 .admin-dashboard table th{
     padding-top:40px;
 }
 
-#dashboard .missions table tbody tr td:last-child,
 .admin-dashboard  table tbody tr td:last-child{
     display: flex;
     justify-content: space-evenly;
 }
 
-#dashboard .missions table tbody tr td:last-child button,
 .admin-dashboard table tbody tr td:last-child button {
     border:none;
     background-color: transparent;
@@ -112,6 +113,13 @@
 }
 
 /****** FORM ******/
+
+.admin-dashboard .error-container {
+    margin-top:50px;
+}
+.admin-dashboard .error-container >*{
+    color:#E75858;
+}
 
 .admin-dashboard .form-container{
     width: 100%;
@@ -139,12 +147,17 @@
     margin-top:40px;
 }
 
-.admin-dashboard .form-container form input, .admin-dashboard .form-container form textarea {
-    height:50px;
+.admin-dashboard .form-container form input, .admin-dashboard .form-container form textarea,.admin-dashboard .form-container form select {
     border:#3996C4 solid 1px;
     border-radius: 5px;
     font-size:12px;
+    height:60px;
 }
+
+.admin-dashboard .form-container form select:not([multiple]){
+    height:50px;
+}
+
 .admin-dashboard  .form-container input:focus-visible{
     box-shadow: inset 0 0 1px 1px #3996C4;
     color:#3996C4;
@@ -159,6 +172,20 @@
     align-items: center;
     width:80%;
     margin-top:50px;
+}
+
+#mission .show-container{
+    flex-direction: column;
+    align-items: center;
+}
+#mission .show-container .infos{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#mission .show-container .infos >div >p{
+    text-align: center;
 }
 
 .admin-dashboard .show-container .infos >div p:first-child{
@@ -182,6 +209,16 @@
 }
 .admin-dashboard  .delete-button{
     background-color: #E75858;
+}
+
+
+@media screen and (max-width: 1440px){
+    #dashboard, #place, #target, #contact, #skill, #agent, #mission{
+        margin-top:-10px;
+    }
+    .admin-dashboard .page-width {
+        margin: 10% 1% 0 10%;
+    }
 }
 
 

@@ -28,6 +28,7 @@ class MissionType extends AbstractType
             ->add('country',ChoiceType::class, [
                 'label'=>'Pays',
                 'choices'=>[
+                    '--'=>'--',
                     'France'=>'France',
                     'Allemagne'=>'Allemagne',
                     'Italie'=>'Italie',
@@ -45,21 +46,26 @@ class MissionType extends AbstractType
             ->add('contacts', EntityType::class,[
                 'class'=> Contact::class,
                 'multiple'=>true,
+                'label'=>'Contact(s)'
             ])
             ->add('places',EntityType::class,[
                 'class'=>Place::class,
-                'multiple'=>true
+                'multiple'=>true,
+                'label'=>'Planque(s)'
             ])
             ->add('skill',EntityType::class,[
-                'class'=>Skill::class
+                'class'=>Skill::class,
+                'label'=>'Spécialité requise'
             ])
             ->add('agents', EntityType::class,[
                 'class'=> Agent::class,
-                'multiple'=>true
+                'multiple'=>true,
+                'label'=>'Agent(s)'
             ])
             ->add('targets', EntityType::class,[
                 'class'=> Target::class,
-                'multiple'=>true
+                'multiple'=>true,
+                'label'=>'Cibles(s)'
             ])
             ->add('type',ChoiceType::class,[
                 'choices'=>[

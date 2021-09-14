@@ -10,17 +10,14 @@
 <div id="container">
     <div id="home">
     {% block nav %}{{ parent() }}{% endblock %}
-        <div class="header-hp">
-            <figure>
-                <img src="{{ asset('assets/images/zzh-header-hp.jpg') }}" alt="Image de fond de la page d'accueil">
-            </figure>
+        <div class="header-hp" style="background-image: url('{{ asset('assets/images/zzh-header-hp.jpg') }}')">
             <div class="header-title page-width">
                 <h1>zerozerohuit</h1>
                 <h2>Comment est votre blanquette ?</h2>
             </div>
         </div>
 
-        <div id="missions-anchor" class="page-width">
+        <div id="missions-anchor" class="section-mission page-width">
             <h2>Les missions</h2>
             <p>Découvrez toutes nos missions en cours </p>
 
@@ -28,7 +25,6 @@
             {% for mission in missions %}
                {# <a href="{{ path('home_show', {'id':mission.id}) }}">#}
                 <a href="{{ path('home_show', {'id':mission.id}) }}">
-                {#  {% if mission.type="Surveillance" %}background-image : url({{ asset('assets/images/surveillance.jpg') }})"{% elsif %}{% else %}{% endif %}{}#}
                     <div class="card" style="background-image:
                         {% if mission.type == "Surveillance" %}url('{{ asset('assets/images/surveillance.jpg') }}')
                         {% elseif mission.type == "Infiltration" %}url('{{ asset('assets/images/infiltration.jpg') }}')
@@ -43,6 +39,10 @@
                 </a>
             {% endfor %}
             </div>
+            <div class="navigation">
+                {{ knp_pagination_render(missions) }}
+            </div>
+
         </div>
     </div>
 

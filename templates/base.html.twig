@@ -163,7 +163,16 @@
                                 {% endif %}
                             </a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
+                                <span class="navbar-toggler-icon">
+                                    <svg version="1.1"  fill="#ffffff" mlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 77.6 26.23" style="enable-background:new 0 0 77.6 26.23;" xml:space="preserve">
+                                        <path class="st0" d="M76.1,3H17.33c-0.83,0-1.5-0.67-1.5-1.5S16.5,0,17.33,0H76.1c0.83,0,1.5,0.67,1.5,1.5S76.93,3,76.1,3z"/>
+                                        <path class="st0" d="M60.27,14.61H1.5c-0.83,0-1.5-0.67-1.5-1.5s0.67-1.5,1.5-1.5h58.77c0.83,0,1.5,0.67,1.5,1.5
+                                            S61.1,14.61,60.27,14.61z"/>
+                                        <path class="st0" d="M76.1,26.23H17.33c-0.83,0-1.5-0.67-1.5-1.5s0.67-1.5,1.5-1.5H76.1c0.83,0,1.5,0.67,1.5,1.5
+                                            S76.93,26.23,76.1,26.23z"/>
+                                    </svg>
+                                </span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarText">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -176,14 +185,18 @@
                                     </li>
                                 </ul>
                                 <span class="navbar-text">
-                            <button type="button" class="connect-button btn">
                                 {% if app.user %}
-                                    <a href="{{ path('dashboard') }}">Dashboard</a>
-                                    <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                    <button type="button" class="dashboard-button btn">
+                                            <a href="{{ path('dashboard') }}">Dashboard</a>
+                                    </button>
+                                    <button type="button" class="connect-button btn">
+                                        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                    </button>
                                 {% else %}
-                                    <a href="{{ path('app_login') }}">Se connecter</a>
+                                    <button type="button" class="connect-button btn">
+                                        <a href="{{ path('app_login') }}">Se connecter</a>
+                                    </button>
                                 {% endif %}
-                            </button>
                         </span>
                             </div>
                         </div>

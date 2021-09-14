@@ -14,16 +14,20 @@
                 <div class="missions">
                     <div class="header-table">
                         <h2>Missions</h2>
+
                         {% if missions %}<button class="btn add-button"><a href="{{ path('mission_new') }}">+   Ajouter une mission</a></button>{% endif %}
                     </div>
-
                     {% if missions %}
+                    <div class="table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th>Titre</th>
                                 <th>Nom de code</th>
                                 <th>Pays</th>
+                                <th>Contact</th>
+                                <th>Agent</th>
+                                <th>Cible</th>
                                 <th>Spécialité</th>
                                 <th>Type</th>
                                 <th>Statut</th>
@@ -37,6 +41,9 @@
                                     <td>{{ mission.title }}</td>
                                     <td>{{ mission.codeName }}</td>
                                     <td>{{ mission.country }}</td>
+                                    {% for contact in mission.contacts %}<td>{{ contact }}</td>{% endfor %}
+                                    {% for agent in mission.agents %}<td>{{ agent }}</td>{% endfor %}
+                                    {% for cible in mission.targets %}<td>{{ cible }}</td>{% endfor %}
                                     <td>{{ mission.skill }}</td>
                                     <td>{{ mission.type }}</td>
                                     <td>{{ mission.status }}</td>
@@ -67,10 +74,11 @@
                             {% endfor %}
                             </tbody>
                         </table>
+                    </div>
                     {% else %}
                         <div class="empty-container">
                             <figure class="empty-illustration">
-                                <img src="{{ asset('assets/images/empty.png') }}" alt="Illustration pas d'information">
+                                <img src="{{ asset('assets/images/mission.png') }}" alt="Illustration pas d'information">
                             </figure>
                             <p>Il n’y a pas encore de mission</p>
                             <button class="btn connect-button">

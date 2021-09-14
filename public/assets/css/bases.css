@@ -73,6 +73,9 @@ nav .zzh-logo{
     border:0;
     color:#ffffff;
 }
+
+.dashboard-button{
+}
 button a{
     color:#ffffff;
     text-decoration: none;
@@ -155,6 +158,30 @@ button a{
 }
 
 
+/******* PAGINATION *******/
+.navigation{
+    margin-top:50px;
+}
+
+.navigation .page-item .page-link{
+    border:none;
+    color:#333333;
+}
+
+.navigation .page-item.active .page-link{
+    background-color:#3996C4;
+    color:#ffffff;
+    border-radius: 100px;
+}
+
+.navigation .page-item .page-link:focus{
+    background-color:transparent;
+    box-shadow: inherit;
+}
+
+.navigation .page-item .page-link:hover{
+    border-radius:100px;
+}
 /******* FOOTER *******/
 footer{
     background-color: #012A3E;
@@ -178,7 +205,7 @@ footer p{
 }
 
 @media screen and (max-width:1440px){
-    .container{
+    #container{
         width:100%;
         box-shadow: none;
         margin:0;
@@ -188,5 +215,6 @@ footer p{
         margin:0 auto;
     }
 }
+
 
 

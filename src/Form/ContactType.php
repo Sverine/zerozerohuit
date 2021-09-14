@@ -9,16 +9,42 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName', TextType::class, ['label'=>'Prénom'])
-            ->add('lastName',TextType::class, ['label'=>'Prénom'])
-            ->add('dateBirth', BirthdayType::class,['label'=>'Date de naissance'])
-            ->add('codeName',TextType::class, ['label'=>'Nom de code'])
+            ->add('firstName', TextType::class, [
+                'label'=>'Prénom',
+                'constraints' => [
+                    new Length(['min' => 3, 'max'=>50]),
+                    new NotBlank()
+                ]
+            ])
+            ->add('lastName',TextType::class, [
+                'label'=>'Prénom',
+                'constraints' => [
+                    new Length(['min' => 3, 'max'=>50]),
+                    new NotBlank()
+                ]
+            ])
+            ->add('dateBirth', BirthdayType::class,[
+                'label'=>'Date de naissance',
+                'constraints' => [
+                    new Date()
+                ]
+            ])
+            ->add('codeName',TextType::class, [
+                'label'=>'Nom de code',
+                'constraints' => [
+                    new Length(['min' => 3, 'max'=>100]),
+                    new NotBlank()
+                ]
+            ])
             ->add('nationality',ChoiceType::class,[
                 'label'=>'Nationalité',
                 'choices'=>[

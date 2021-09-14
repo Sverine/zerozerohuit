@@ -7,13 +7,13 @@
 {% endblock %}
 
 {% block body %}
-<div id="container">
+<div id="container" class="admin-dashboard">
     <div id="dashboard">
         {% block dashboard %}{{ parent() }}{% endblock %}
 
         <div class="intro page-width">
             <h1>Bonjour {{ app.user.firstName}}</h1>
-            <p>Il y a actuellement <span>{{ missions|length }}</span> missions</p>
+            <p>Il y a actuellement <span>{{ missions|length }}</span> mission{% if missions|length >1 %}s{% endif %}</p>
         </div>
 
         <div class="content page-width">

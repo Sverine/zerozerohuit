@@ -16,18 +16,18 @@
 
             <div class="show-container">
                 <figure>
-                    <img src="{{ asset('assets/images/show.png') }}" alt="Illustration">
+                    <img src="{{ asset('assets/images/target.png') }}" alt="Illustration">
                 </figure>
 
                 <div class="infos">
-                    <div class="first-name">
+                    {#  <div class="first-name">
                         <p>Prénom</p>
                         <p>{{ target.firstName }}</p>
                     </div>
                     <div class="last-name">
                         <p>Nom</p>
                         <p>{{ target.lastName }}</p>
-                    </div>
+                    </div>#}
                     <div class="date-birth">
                         <p>Date de naissance</p>
                         <p>{{ target.dateBirth ? target.dateBirth|date('Y-m-d') : '' }}</p>

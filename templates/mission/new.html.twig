@@ -11,10 +11,19 @@
         <div id="mission">
             {% block dashboard %}{{ parent() }}{% endblock %}
             <div class="page-width">
-                {% for agent in mission.agents %}
-                {{ dump(agent.firstName) }}
-                {% endfor %}
                 <h1>Créer une nouvelle mission</h1>
+                {#  {% for message in app.flashes('error') %}
+                    <div class="flash-notice">
+                        {{ message }}
+                    </div>
+                {% endfor %}#}
+                {% if errors is defined %}
+                    <div class="error-container">
+                    {% for error in errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                    </div>
+                {% endif %}
                 <div class="form-container">
                     {{ form_start(form) }}
                     {{ form_rest(form) }}
@@ -51,7 +60,7 @@
 
             let elementsToHide = [contactSelectParent,placeSelectParent,skillSelectParent,agentSelectParent,targetSelectParent, typeSelectParent, statusSelectParent, dateStartSelectParent ,dateEndSelectParent];
 
-            for (let element of elementsToHide){
+            /*for (let element of elementsToHide){
                 element.style.display='none';
             }
 
@@ -74,7 +83,7 @@
                 for (let i = 5; i < elementsToHide.length; i++){
                     elementsToHide[i].style.display='block';
                 }
-            });
+            });*/
 
 
         </script>
