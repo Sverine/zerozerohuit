@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Agent;
 use App\Entity\Mission;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -19,6 +20,17 @@ class MissionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Mission::class);
     }
+
+     /**
+      * @return Query
+      */
+
+    public function findAllByPaginationQuery(): Query
+    {
+        return $this->createQueryBuilder('m')
+            ->getQuery();
+    }
+
 
 
     // /**

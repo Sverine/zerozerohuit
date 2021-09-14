@@ -10,29 +10,19 @@
 
 /******* HEADER *******/
 #home .header-hp{
-    position: relative;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
-    max-height: 791px;
+    min-height: 750px;
     width:100%;
     margin-top: -98px;
-}
-#home .header-hp figure{
-    position: absolute;
-    width:100%;
-    margin:0 ;
-    top:0%;
-    max-height:791px;
-    z-index:0;
+    background-size: cover;
+    background-position: center;
 }
 
 #home .header-hp .header-title{
-    z-index:1;
     align-items: flex-start;
-    margin-top:-60px;
 }
 
 #home .header-hp .header-title h1{
@@ -42,7 +32,7 @@
     font-weight: 400;
 }
 
-#home .header-hp .header-title h1,.header-hp .header-title h2{
+#home .header-hp .header-title >*{
     color:#ffffff;
 }
 
@@ -99,7 +89,7 @@
     min-height: 580px;
     background-size: cover;
     background-position: center;
-    margin-top:-98px;
+    margin-top:-7%;
     background-image: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
     position: relative;
 
@@ -109,7 +99,7 @@
     content: "";
     display: block;
     width: 100%;
-    min-height: 580px;
+    min-height: 575px;
     background: rgb(0,0,0);
     background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
 }
@@ -210,6 +200,153 @@
 
 #home-mission .connect-button.btn{
     padding: 15px 20px;
+}
+
+@media screen and (max-width:1440px){
+    #home .header-hp{
+        margin-top: -12%;
+        position: relative;
+    }
+    #home .header-hp:after{
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        min-height: 750px;
+        background: rgb(0,0,0);
+        background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        top:0;
+        left:0;
+        z-index: 0;
+    }
+    #home .header-hp .header-title{
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+    #home .header-hp .header-title >*{
+        position: relative;
+        text-align: center;
+    }
+
+    #home .section-mission{
+        margin-top:50px;
+    }
+
+    #home-mission .banner{
+        margin-top:-12%;
+    }
+
+}
+
+@media screen and (max-width:1049px){
+    #home-mission .banner svg{
+        top:86%;
+    }
+}
+
+@media screen and (max-width:992px){
+    #home .header-hp{
+        margin-top: -26%;
+    }
+    #home-mission .banner {
+        margin-top: -35%;
+        min-height: 440px;
+
+    }
+    #home-mission .banner .banner-title{
+        top: 55%;
+    }
+
+    #home nav .navbar-collapse .navbar-nav,
+    #home-mission nav .navbar-collapse .navbar-nav{
+        text-align: center;
+    }
+    #home nav .navbar-collapse .navbar-text,
+    #home-mission nav .navbar-collapse .navbar-text{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 730px){
+    #home-mission .agents-contacts-places{
+        flex-direction: column;
+        align-items: center;
+    }
+    #home-mission .agents-contacts-places >div{
+        margin: 10px auto;
+    }
+    #home-mission .banner {
+        margin-top: -38%;
+    }
+    #home-mission .banner svg {
+        top: 90%;
+    }
+    #home-mission .rest-infos >p,
+    #home-mission .rest-infos .dates>p {
+        text-align: center;
+    }
+    #home-mission .rest-infos .dates{
+        flex-direction: column;
+        align-items: center;
+    }
+    #home-mission .page-width{
+        padding:50px 10px;
+    }
+}
+
+@media screen and (max-width:676px){
+    #home .header-hp{
+        min-height: 650px;
+    }
+    #home .header-hp:after{
+        min-height: 650px;
+    }
+    #home .header-hp .header-title h1{
+        font-size:35px;
+    }
+    #home .header-hp .header-title h2{
+        font-size:20px;
+    }
+
+}
+
+@media screen and (max-width: 522px){
+    #home .header-hp .header-title{
+        padding:0 2px;
+        margin-top:50%;
+    }
+    #home .header-hp .header-title h1{
+        font-size:20px;
+    }
+    #home .header-hp .header-title h2{
+        font-size:16px;
+    }
+    #home .header-hp {
+        margin-top: -74%;
+    }
+
+    #home .section-mission >p{
+        text-align: center;
+    }
+
+    #home-mission .banner {
+        margin-top: -66%;
+    }
+    #home-mission .banner svg {
+        top: 92.5%;
+    }
+}
+
+@media screen and (max-width : 386px){
+    #home-mission .banner svg {
+        top: 95%;
+    }
+    #home-mission .banner {
+        margin-top: -80%;
+    }
 }
 
 
