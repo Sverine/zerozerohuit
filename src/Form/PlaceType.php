@@ -17,13 +17,6 @@ class PlaceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('code', TextType::class, [
-                'label'=>'Code',
-                'constraints' => [
-                    new Length(['min' => 3, 'max'=>50]),
-                    new NotBlank()
-                ]
-            ])
             ->add('address', TextareaType::class,[
                 'label'=>'Adresse',
                 'constraints' => [
@@ -55,6 +48,13 @@ class PlaceType extends AbstractType
                     'Confortable - Hotel Moyen'=>'Hotel confortable',
                     'Economique - Formule 1'=>'Hotel économique',
                     'Gratuit - Tente'=>'Tente'
+                ]
+            ])
+            ->add('code', TextType::class, [
+                'label'=>'Code',
+                'constraints' => [
+                    new Length(['min' => 3, 'max'=>50]),
+                    new NotBlank()
                 ]
             ])
         ;

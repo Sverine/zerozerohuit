@@ -36,9 +36,25 @@
                             <p>Pays</p>
                             <p>{{ mission.country }}</p>
                         </div>
+                        <div class="contacts">
+                            <p>Contact{% if mission.contacts | length >1 %}s{% endif %}</p>
+                            <p>{% for contact in mission.contacts %}{{ contact }} {% endfor %}</p>
+                        </div>
+                        <div class="places">
+                            <p>Planque{% if mission.places | length >1 %}s{% endif %}</p>
+                            <p>{% for place in mission.places %}{{ place }} {% endfor %}</p>
+                        </div>
                         <div class="skill">
-                            <p>Pays</p>
+                            <p>Spécialité</p>
                             <p>{{ mission.skill }}</p>
+                        </div>
+                        <div class="agents">
+                            <p>Agent{% if mission.agents | length >1 %}s{% endif %}</p>
+                            <p>{% for agent in mission.agents %}{{ agent }} {% endfor %}</p>
+                        </div>
+                        <div class="targets">
+                            <p>Cible{% if mission.targets | length >1 %}s{% endif %}</p>
+                            <p>{% for target in mission.targets %}{{ target }} {% endfor %}</p>
                         </div>
                         <div class="type">
                             <p>Type</p>

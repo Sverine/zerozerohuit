@@ -76,11 +76,17 @@ class MissionController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             if ($mission->isValid()){
-            $this->getDoctrine()->getManager()->flush();
+                $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('mission_index', [], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('mission_index', [], Response::HTTP_SEE_OTHER);
+            }else{
+                return $this->renderForm('mission/edit.html.twig', [
+                    'errors' => $mission->getErrors(),
+                    'mission' => $mission,
+                    'form' => $form
+                ]);
             }
-            return $this->redirectToRoute('mission_edit');
+            #return $this->redirectToRoute('mission_edit');
         }
 
         return $this->renderForm('mission/edit.html.twig', [
