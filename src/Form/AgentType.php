@@ -37,9 +37,6 @@ class AgentType extends AbstractType
             ])
             ->add('dateBirth',BirthdayType::class,[
                 'label'=>'Date de naissance',
-                'constraints'=>[
-                    new Date()
-                ]
             ])
             ->add('authCode', TextType::class,[
                 'label'=>'Code d\'authentification',
@@ -55,7 +52,6 @@ class AgentType extends AbstractType
                     'Allemagne'=>'Allemagne',
                     'Italie'=>'Italie',
                     'Angleterre'=>'Angleterre',
-                    'Ecosse'=>'Ecosse',
                     'Thailande'=>'Thailande',
                     'Japon'=>'Japon',
                     'Chine'=>'Chine',

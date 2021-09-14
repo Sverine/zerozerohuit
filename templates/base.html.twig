@@ -11,6 +11,7 @@
             <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('assets/css/bases.css') }}" rel="stylesheet">
         {% endblock %}
+        <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png') }}" />
 
     </head>
     <body>
@@ -154,10 +155,10 @@
                 {% endblock %}
                 {% block nav %}
                     {%  set route = app.request.get('_route') %}
-                    <nav class="navbar navbar-expand-lg {% if (route == 'app_login') or (route == 'registration') %}dark{% else %}white{% endif %}">
+                    <nav class="navbar navbar-expand-lg {% if route == 'app_login' %}dark{% else %}white{% endif %}">
                         <div class="container-fluid">
                             <a class="navbar-brand zzh-logo" href="{{ path('home') }}">
-                                {% if (route == 'app_login') or (route == 'registration') %}
+                                {% if route == 'app_login' %}
                                     <img src="{{ asset('assets/images/svg/zzh-logo-dark.svg') }}" alt="Logo de Zero Zero Huit">
                                 {% else %}
                                     <img src="{{ asset('assets/images/svg/zzh-logo-white.svg') }}" alt="Logo de Zero Zero Huit">
