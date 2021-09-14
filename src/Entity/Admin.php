@@ -50,6 +50,11 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $date_creation;
 
+    public function __construct()
+    {
+        $this->date_creation = new \DateTime();
+    }
+
 
     public function getId(): ?int
     {
